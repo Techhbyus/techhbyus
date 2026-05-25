@@ -2,9 +2,9 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
 const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/", Icon: FaInstagram, className: "instagram" },
-  { label: "Facebook", href: "https://www.facebook.com/", Icon: FaFacebookF, className: "facebook" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: FaLinkedinIn, className: "linkedin" },
+  { label: "Instagram", href: "https://www.instagram.com/techhbyus/", Icon: FaInstagram, className: "instagram" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61590411418974&sk=about", Icon: FaFacebookF, className: "facebook" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/techhbyus-ours-to-yours-009479411", Icon: FaLinkedinIn, className: "linkedin" },
 ];
 
 export default function Footer() {
