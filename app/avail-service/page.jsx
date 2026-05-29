@@ -3,30 +3,86 @@
 import { useState } from "react";
 
 export default function AvailServicePage() {
-  const [formMessage, setFormMessage] = useState("");
 
-  function handleSubmit(event) {
+  const [formMessage, setFormMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(event) {
+
     event.preventDefault();
 
-    const data = new FormData(event.currentTarget);
+    setLoading(true);
 
-    setFormMessage(
-        `Thank you ${data.get("name").trim()}! Your ${
-            data.get("service").trim()
-        } request has been submitted successfully. Our team will contact you soon.`
-    );
+    const formData = new FormData(event.currentTarget);
 
-    event.currentTarget.reset();
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      business: formData.get("business"),
+      service: formData.get("service"),
+      details: formData.get("details"),
+    };
+
+    try {
+
+      const response = await fetch(
+          "/api/service-request",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(data),
+          }
+      );
+
+      const result = await response.json();
+
+      if (result.success) {
+
+        setFormMessage(
+            `Thank you ${data.name}! Your request has been submitted successfully. Our team will contact you soon.`
+        );
+
+        event.currentTarget.reset();
+
+      } else {
+
+        setFormMessage(
+            "Failed to submit request. Please try again."
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(error);
+
+      setFormMessage(
+          "Something went wrong. Please try again later."
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
   }
 
   return (
       <main>
+
         <section className="section avail page-section reveal">
 
           {/* Left Content */}
           <div className="avail-copy">
 
-            <p className="eyebrow">Get Started</p>
+            <p className="eyebrow">
+              Get Started
+            </p>
 
             <h1>
               Let’s Build & Grow Your Business Together
@@ -56,10 +112,14 @@ export default function AvailServicePage() {
           </div>
 
           {/* Form */}
-          <form className="service-form" onSubmit={handleSubmit}>
+          <form
+              className="service-form"
+              onSubmit={handleSubmit}
+          >
 
             <label>
               Your Name
+
               <input
                   type="text"
                   name="name"
@@ -70,6 +130,7 @@ export default function AvailServicePage() {
 
             <label>
               Business Email
+
               <input
                   type="email"
                   name="email"
@@ -80,6 +141,7 @@ export default function AvailServicePage() {
 
             <label>
               Company / Business Name
+
               <input
                   type="text"
                   name="business"
@@ -89,29 +151,53 @@ export default function AvailServicePage() {
 
             <label>
               Service Needed
-              <select name="service" required>
-                <option value="">Select a service</option>
 
-                <option>Business Website</option>
+              <select
+                  name="service"
+                  required
+              >
+                <option value="">
+                  Select a service
+                </option>
 
-                <option>Landing Page</option>
+                <option>
+                  Business Website
+                </option>
 
-                <option>E-commerce Website</option>
+                <option>
+                  Landing Page
+                </option>
 
-                <option>Website Redesign</option>
+                <option>
+                  E-commerce Website
+                </option>
 
-                <option>Website Hosting & Maintenance</option>
+                <option>
+                  Website Redesign
+                </option>
 
-                <option>Business Growth Consulting</option>
+                <option>
+                  Website Hosting & Maintenance
+                </option>
 
-                <option>Audience Growth Strategy</option>
+                <option>
+                  Business Growth Consulting
+                </option>
 
-                <option>Business Model Expansion</option>
+                <option>
+                  Audience Growth Strategy
+                </option>
+
+                <option>
+                  Business Model Expansion
+                </option>
+
               </select>
             </label>
 
             <label>
               Project Details
+
               <textarea
                   name="details"
                   rows="5"
@@ -122,8 +208,9 @@ export default function AvailServicePage() {
             <button
                 className="btn primary form-submit"
                 type="submit"
+                disabled={loading}
             >
-              Submit Request
+              {loading ? "Submitting..." : "Submit Request"}
             </button>
 
             <p
@@ -137,6 +224,7 @@ export default function AvailServicePage() {
           </form>
 
         </section>
+
       </main>
   );
 }
