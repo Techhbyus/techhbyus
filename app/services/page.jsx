@@ -124,10 +124,6 @@ export default function ServicesPage() {
               digital future through technology, consulting, and business growth solutions.
             </p>
 
-            {/*<a href="/contact" className="primary-btn">*/}
-            {/*  Contact Us*/}
-            {/*</a>*/}
-
           </div>
         </section>
 

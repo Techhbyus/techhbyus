@@ -2,94 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
-  BriefcaseBusiness,
   ChevronRight,
   CircleCheck,
-  Globe2,
-  Handshake,
-  Lightbulb,
-  Megaphone,
-  Rocket,
   SearchCheck,
-  Settings,
-  ShieldCheck,
-  Sparkles,
-  TrendingUp,
 } from "lucide-react";
-
-const missionItems = [
-  "Build your online identity",
-  "Help your business grow faster",
-  "Expand your reach to more customers",
-  "Create smart digital strategies",
-  "Support your long-term success",
-];
-
-const services = [
-  {
-    title: "Website Development",
-    text: "Professional, modern, and responsive websites that represent your brand and help convert visitors into customers.",
-    Icon: Globe2,
-  },
-  {
-    title: "Business Growth Consulting",
-    text: "We help businesses improve their digital strategy, customer reach, and overall business growth.",
-    Icon: TrendingUp,
-  },
-  {
-    title: "Business Model Expansion",
-    text: "Looking to expand your services or scale your business? We help you identify opportunities and create strategies for long-term growth.",
-    Icon: BriefcaseBusiness,
-  },
-  {
-    title: "Branding & Online Presence",
-    text: "Build a strong online identity with professional branding, social media guidance, and digital visibility strategies.",
-    Icon: Sparkles,
-  },
-  {
-    title: "Audience Growth",
-    text: "We help you reach the right audience and grow your customer base using smart digital marketing and engagement strategies.",
-    Icon: Megaphone,
-  },
-  {
-    title: "Technical Support & Maintenance",
-    text: "Reliable support and maintenance services to ensure your digital platforms stay secure and updated.",
-    Icon: Settings,
-  },
-];
-
-const reasons = [
-  ["Trusted Partnership", "We work closely with you and treat your business goals like our own.", Handshake],
-  ["Complete Digital Solutions", "From website development to business consulting, everything is managed in one place.", ShieldCheck],
-  ["Customized Strategies", "Every business is unique, and we create personalized solutions that fit your vision.", Lightbulb],
-  ["Focused on Growth", "Our goal is not just to build websites - it is to help your business grow continuously.", Rocket],
-  ["Affordable & Scalable", "Smart solutions that work for both startups and growing businesses.", BadgeCheck],
-];
-
-const processSteps = [
-  ["Understand Your Business", "We learn about your goals, challenges, and vision."],
-  ["Create the Right Strategy", "We build a roadmap for your website, branding, and growth plan."],
-  ["Build & Launch", "Our team develops professional digital solutions tailored to your business."],
-  ["Grow Together", "We continue supporting your business growth and audience expansion."],
-];
-
-const featureItems = [
-  "Build a professional online presence",
-  "Reach more customers",
-  "Improve business credibility",
-  "Expand your business model",
-  "Grow your audience",
-  "Increase digital visibility",
-  "Build trust with customers",
-  "Create long-term growth opportunities",
-];
-
-const testimonials = [
-  "TechByus helped us create a professional online presence and guided us through our business growth journey.",
-  "Their team understood our vision and delivered solutions that truly helped our business grow.",
-  "Reliable, professional, and growth-focused - exactly what we needed.",
-];
+import {
+  featureItems,
+  homeServices,
+  missionItems,
+  processSteps,
+  reasons,
+  testimonials,
+} from "./data";
 
 export default function Home() {
   return (
@@ -167,7 +91,7 @@ export default function Home() {
           <h2>Digital services built around business outcomes.</h2>
         </div>
         <div className="home-service-grid">
-          {services.map(({ title, text, Icon }) => (
+          {homeServices.map(({ title, text, Icon }) => (
             <article className="home-service-card reveal" key={title}>
               <span className="home-card-icon"><Icon size={24} aria-hidden="true" /></span>
               <h3>{title}</h3>
@@ -184,7 +108,7 @@ export default function Home() {
           <h2>Built for businesses that want steady digital growth.</h2>
         </div>
         <div className="reason-grid">
-          {reasons.map(([title, text, Icon]) => (
+          {reasons.map(({ title, text, Icon }) => (
             <article className="reason-card reveal" key={title}>
               <Icon size={24} aria-hidden="true" />
               <div>
@@ -203,7 +127,7 @@ export default function Home() {
             <h2>A clear process from idea to growth.</h2>
           </div>
           <div className="process-grid">
-            {processSteps.map(([title, text], index) => (
+            {processSteps.map(({ title, text }, index) => (
               <article className="process-step" key={title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{title}</h3>

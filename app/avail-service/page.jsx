@@ -1,230 +1,41 @@
-"use client";
+import ServiceForm from "./ServiceForm";
 
-import { useState } from "react";
+export const metadata = {
+  title: "Avail a Service | TechByus",
+  description: "Tell us about your business and what you need. TechByus will review your goals and provide tailored digital solutions.",
+};
 
 export default function AvailServicePage() {
-
-  const [formMessage, setFormMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(event) {
-
-    event.preventDefault();
-
-    setLoading(true);
-
-    const formData = new FormData(event.currentTarget);
-
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      business: formData.get("business"),
-      service: formData.get("service"),
-      details: formData.get("details"),
-    };
-
-    try {
-
-      const response = await fetch(
-          "/api/service-request",
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type": "application/json",
-            },
-
-            body: JSON.stringify(data),
-          }
-      );
-
-      const result = await response.json();
-
-      if (result.success) {
-
-        setFormMessage(
-            `Thank you ${data.name}! Your request has been submitted successfully. Our team will contact you soon.`
-        );
-
-        event.currentTarget.reset();
-
-      } else {
-
-        setFormMessage(
-            "Failed to submit request. Please try again."
-        );
-
-      }
-
-    } catch (error) {
-
-      console.error(error);
-
-      setFormMessage(
-          "Something went wrong. Please try again later."
-      );
-
-    } finally {
-
-      setLoading(false);
-
-    }
-
-  }
-
   return (
-      <main>
+    <main>
+      <section className="section avail page-section reveal">
 
-        <section className="section avail page-section reveal">
+        <div className="avail-copy">
+          <p className="eyebrow">Get Started</p>
+          <h1>Let's Build & Grow Your Business Together</h1>
+          <p>
+            At TechByus, we help businesses build professional websites,
+            improve their online presence, grow their audience,
+            and expand their business through smart digital solutions.
+          </p>
+          <p>
+            Fill out the form and share your business requirements with us.
+            Our team will review your goals and provide the best solutions
+            tailored to your business needs.
+          </p>
+          <ul className="check-list">
+            <li>Professional website development</li>
+            <li>Business growth consulting</li>
+            <li>Website hosting & maintenance</li>
+            <li>Audience growth strategies</li>
+            <li>Business model expansion guidance</li>
+            <li>Personalized digital solutions</li>
+          </ul>
+        </div>
 
-          {/* Left Content */}
-          <div className="avail-copy">
+        <ServiceForm />
 
-            <p className="eyebrow">
-              Get Started
-            </p>
-
-            <h1>
-              Let’s Build & Grow Your Business Together
-            </h1>
-
-            <p>
-              At TechByus, we help businesses build professional websites,
-              improve their online presence, grow their audience,
-              and expand their business through smart digital solutions.
-            </p>
-
-            <p>
-              Fill out the form and share your business requirements with us.
-              Our team will review your goals and provide the best solutions
-              tailored to your business needs.
-            </p>
-
-            <ul className="check-list">
-              <li>Professional website development</li>
-              <li>Business growth consulting</li>
-              <li>Website hosting & maintenance</li>
-              <li>Audience growth strategies</li>
-              <li>Business model expansion guidance</li>
-              <li>Personalized digital solutions</li>
-            </ul>
-
-          </div>
-
-          {/* Form */}
-          <form
-              className="service-form"
-              onSubmit={handleSubmit}
-          >
-
-            <label>
-              Your Name
-
-              <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your full name"
-                  required
-              />
-            </label>
-
-            <label>
-              Business Email
-
-              <input
-                  type="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  required
-              />
-            </label>
-
-            <label>
-              Company / Business Name
-
-              <input
-                  type="text"
-                  name="business"
-                  placeholder="Enter your business name"
-              />
-            </label>
-
-            <label>
-              Service Needed
-
-              <select
-                  name="service"
-                  required
-              >
-                <option value="">
-                  Select a service
-                </option>
-
-                <option>
-                  Business Website
-                </option>
-
-                <option>
-                  Landing Page
-                </option>
-
-                <option>
-                  E-commerce Website
-                </option>
-
-                <option>
-                  Website Redesign
-                </option>
-
-                <option>
-                  Website Hosting & Maintenance
-                </option>
-
-                <option>
-                  Business Growth Consulting
-                </option>
-
-                <option>
-                  Audience Growth Strategy
-                </option>
-
-                <option>
-                  Business Model Expansion
-                </option>
-
-              </select>
-            </label>
-
-            <label>
-              Project Details
-
-              <textarea
-                  name="details"
-                  rows="5"
-                  placeholder="Tell us about your business, goals, and what you want to achieve."
-              />
-            </label>
-
-            <button
-                className="btn primary form-submit"
-                type="submit"
-                disabled={loading}
-            >
-              {loading ? "Submitting..." : "Submit Request"}
-            </button>
-
-            <p
-                className="form-message"
-                role="status"
-                aria-live="polite"
-            >
-              {formMessage}
-            </p>
-
-          </form>
-
-        </section>
-
-      </main>
+      </section>
+    </main>
   );
 }

@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-export default function InteractionObserver() {
+export default function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {

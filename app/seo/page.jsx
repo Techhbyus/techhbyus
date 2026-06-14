@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { seoItems } from "../data";
 
 export const metadata = {
@@ -149,9 +150,9 @@ export default function SeoPage() {
               and digital growth strategies.
             </p>
 
-            <a href="/avail-service" className="primary-btn">
+            <Link href="/avail-service" className="btn primary">
               Get Started
-            </a>
+            </Link>
 
           </div>
 

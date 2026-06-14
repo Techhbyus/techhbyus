@@ -1,7 +1,7 @@
 import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import InteractionObserver from "./components/InteractionObserver";
+import ScrollReveal from "./components/ScrollReveal";
 
 export const metadata = {
   title: "TechByus | We build website - you grow your business",
@@ -10,9 +10,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en">
       <body>
-        <InteractionObserver />
+        <ScrollReveal />
         <Header />
         {children}
         <Footer />
