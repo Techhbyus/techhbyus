@@ -18,8 +18,8 @@ import {
 export default function Home() {
   return (
     <main>
-      <section className="home-hero section reveal">
-        <div className="home-hero-content">
+      <section className="home-hero section">
+        <div className="home-hero-content reveal-left">
           <p className="eyebrow">Technology and business growth partner</p>
           <h1>We Help Businesses Grow Digitally</h1>
           <p className="home-hero-lead">
@@ -38,7 +38,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="growth-panel" aria-label="TechByus growth focus">
+        <div className="growth-panel reveal-right" aria-label="TechByus growth focus">
           <Image src="/assets/hero-workspace.png" alt="TechByus digital growth workspace" width={1600} height={1000} priority />
           <div className="growth-metrics">
             <span><strong>Websites</strong>Launch-ready digital presence</span>
@@ -48,15 +48,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-band reveal">
+      <section className="trust-band">
         <div className="trust-inner">
-          <div>
+          <div className="reveal-left">
             <p className="eyebrow">Why Businesses Trust TechByus</p>
             <h2>You are safe choosing TechByus as your digital growth partner.</h2>
             <p>We work as the bridge between your business goals and modern technology solutions.</p>
             <strong>We do not just create websites - we help businesses build their future.</strong>
           </div>
-          <ul className="mission-list" aria-label="TechByus mission">
+          <ul className="mission-list reveal-right" aria-label="TechByus mission">
             {missionItems.map((item) => (
               <li key={item}>
                 <CircleCheck size={20} aria-hidden="true" />
@@ -67,19 +67,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section about-section reveal">
-        <div className="section-heading">
+      <section className="section about-section">
+        <div className="section-heading reveal">
           <p className="eyebrow">Your Growth Partner in the Digital World</p>
           <h2>Consulting, technology, and practical growth support in one place.</h2>
         </div>
         <div className="about-layout">
-          <p>
+          <p className="reveal">
             TechByus is a consulting and technology company focused on helping businesses establish a strong digital presence and unlock new growth opportunities.
           </p>
-          <p>
+          <p className="reveal">
             Whether you are a startup, local business, personal brand, or growing company, we provide the right solutions to help you succeed online.
           </p>
-          <p>
+          <p className="reveal">
             We understand that every business is different. That is why we create customized strategies and digital solutions designed specifically for your goals.
           </p>
         </div>
@@ -122,13 +122,13 @@ export default function Home() {
 
       <section className="process-band reveal">
         <div className="section process-section">
-          <div className="section-heading">
+          <div className="section-heading reveal">
             <p className="eyebrow">How We Work</p>
             <h2>A clear process from idea to growth.</h2>
           </div>
           <div className="process-grid">
             {processSteps.map(({ title, text }, index) => (
-              <article className="process-step" key={title}>
+              <article className="process-step reveal" key={title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
@@ -138,13 +138,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section feature-section reveal">
-        <div className="feature-copy">
+      <section className="section feature-section">
+        <div className="feature-copy reveal-left">
           <p className="eyebrow">More Than a Website</p>
           <h2>We Help You Build More Than a Website</h2>
           <p>At TechByus, we help you connect your brand, customers, credibility, and long-term digital opportunities.</p>
         </div>
-        <div className="feature-list">
+        <div className="feature-list reveal-right">
           {featureItems.map((item) => (
             <span key={item}>
               <SearchCheck size={18} aria-hidden="true" />

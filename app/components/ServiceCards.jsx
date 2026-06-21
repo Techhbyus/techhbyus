@@ -11,7 +11,7 @@ export default function ServiceCards({ services }) {
       {services.map((service, index) => {
         const isOpen = openIndex === index;
         return (
-          <article className={`service-card reveal ${isOpen ? "open" : ""}`} key={service.title}>
+          <article className={`service-card ${isOpen ? "open" : ""}`} key={service.title}>
             <button className="service-card-button" type="button" aria-expanded={isOpen} onClick={() => setOpenIndex(isOpen ? -1 : index)}>
               <span className="service-icon">{String(index + 1).padStart(2, "0")}</span>
               <span className="service-title">

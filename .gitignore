@@ -13,3 +13,7 @@ yarn-error.log*
 pnpm-debug.log*
 graphify-out/
 .graphify_*
+
+# markdown files (CLAUDE.md is the only exception)
+*.md
+!CLAUDE.md
