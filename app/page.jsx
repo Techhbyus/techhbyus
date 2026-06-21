@@ -14,11 +14,22 @@ import {
   reasons,
   testimonials,
 } from "./data";
+import ParticleField from "./components/ParticleField";
+
+export const metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "TechByus | We build website - you grow your business",
+    description: "TechByus builds modern websites, service platforms, and SEO foundations for growing businesses.",
+    url: "/",
+  },
+};
 
 export default function Home() {
   return (
     <main>
       <section className="home-hero section">
+        <ParticleField className="home-hero-particles" />
         <div className="home-hero-content reveal-left">
           <p className="eyebrow">Technology and business growth partner</p>
           <h1>We Help Businesses Grow Digitally</h1>

@@ -16,7 +16,16 @@ const termsSections = [
   ["15. Contact Information", ["If you have any questions regarding these Terms and Conditions, contact:"], ["TechByus", "Email: support@techbyus.com", "Website: www.techbyus.com"]],
 ];
 
-export const metadata = { title: "Terms and Conditions | TechByus", description: "Terms and conditions for TechByus website services." };
+export const metadata = {
+  title: "Terms and Conditions | TechByus",
+  description: "Terms and conditions for TechByus website services.",
+  alternates: { canonical: "/terms-and-conditions" },
+  openGraph: {
+    title: "Terms and Conditions | TechByus",
+    description: "Terms and conditions for TechByus website services.",
+    url: "/terms-and-conditions",
+  },
+};
 
 export default function TermsAndConditionsPage() {
   return (

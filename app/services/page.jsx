@@ -5,6 +5,13 @@ export const metadata = {
   title: "Services | TechByus",
   description:
       "Helping small businesses grow through website development, hosting, maintenance, business consulting, and digital growth solutions.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services | TechByus",
+    description:
+        "Helping small businesses grow through website development, hosting, maintenance, business consulting, and digital growth solutions.",
+    url: "/services",
+  },
 };
 
 export default function ServicesPage() {

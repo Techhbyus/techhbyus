@@ -1,12 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function ScrollReveal() {
   const pathname = usePathname();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const elements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
     const observer = new IntersectionObserver(
       (entries) => {

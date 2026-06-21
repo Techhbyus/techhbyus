@@ -17,7 +17,8 @@
 **Stack:**
 - Next.js (App Router, Turbopack enabled)
 - React 19 (JSX, not TSX — no TypeScript in this repo)
-- Plain CSS via `app/globals.css`
+- Tailwind CSS (added 2026-06-21) — utility classes for new/redesigned components, layered on top of `app/globals.css` (tokens, fonts, anything truly global stay in globals.css)
+- `framer-motion` + `gsap` — animation engines for navbar/hero/background motion
 - `lucide-react` for UI icons
 - `react-icons` for social icons (Instagram, Facebook, LinkedIn)
 - `mysql2` for database (contact form / service requests)
@@ -103,7 +104,8 @@ Skip only for single-line factual questions with no code.
 - No `any` patterns — if you reach for a comment to explain a type hack, rethink the approach
 - Validate all form/API input at the boundary (API routes), never trust client data
 - Keep components small and single-purpose — if a component needs a comment to explain what it does, split it
-- CSS stays in `globals.css` unless component is truly isolated — no inline styles for layout
+- Tailwind utility classes preferred for new components; keep tokens/fonts/global resets in `globals.css`
+- No inline `style={{}}` for layout — tailwind classes or globals.css only
 - No unused imports, no console.log in committed code
 - `mysql2` queries must use parameterized placeholders — never interpolate user input into SQL
 
@@ -132,7 +134,7 @@ Skip only for single-line factual questions with no code.
 ## What NEVER to do
 
 - Do NOT add TypeScript — this repo is intentionally JSX; don't migrate types
-- Do NOT add a CSS-in-JS library (styled-components, Emotion) — plain CSS is the choice here
+- Do NOT add a CSS-in-JS library (styled-components, Emotion) — Tailwind + plain CSS is the choice here
 - Do NOT use `pages/` directory — App Router only
 - Do NOT add `"use client"` at the top of every component by default — think first
 - Do NOT interpolate user input into SQL queries

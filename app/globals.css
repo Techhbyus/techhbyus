@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* ── FONTS ── */
 @font-face {
   font-family: 'Acronym';
@@ -194,6 +196,7 @@ body > main { animation: pageEnter 0.38s ease forwards; }
 }
 
 .nav-links a {
+  position: relative;
   padding: 7px 16px;
   border-radius: 19px;
   color: var(--smoke);
@@ -201,12 +204,29 @@ body > main { animation: pageEnter 0.38s ease forwards; }
   font-weight: 600;
   letter-spacing: 0.025em;
   white-space: nowrap;
-  transition: color .15s ease, background .15s ease;
+  transition: color .15s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--bone);
+}
+
+.nav-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 19px;
+  background: var(--plum);
+  z-index: 0;
+}
+
+.nav-label {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-logo-wrap {
+  display: inline-flex;
 }
 
 .nav-links a.nav-cta {
@@ -351,6 +371,8 @@ h3 {
 
 /* ── HERO HOME ── */
 .home-hero {
+  position: relative;
+  overflow: hidden;
   min-height: calc(100svh - 72px);
   display: grid;
   grid-template-columns: minmax(0, .95fr) minmax(360px, 1.05fr);
@@ -359,7 +381,19 @@ h3 {
   padding-top: 48px;
 }
 
-.home-hero-content { min-width: 0; }
+.particle-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-hero-content,
+.growth-panel {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
 
 .home-hero-lead {
   max-width: 620px;
@@ -1376,6 +1410,37 @@ textarea { resize: vertical; }
 .theme-toggle:hover {
   color: var(--bone);
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── TOUCH FEEDBACK ──
+   Touch devices never fire :hover, so every hover-only effect above
+   is invisible on mobile. These :active mirrors give tap feedback instead. */
+@media (hover: none) {
+  .nav-links a:active { color: var(--bone); }
+  .nav-links a.nav-cta:active { background: #ffc93a; }
+
+  .growth-metrics span:active { background: var(--plum-dim); color: var(--bone); }
+  .mission-list li:active { border-color: var(--border-hover); background: var(--plum-dim); color: var(--bone); }
+
+  .home-service-card:active { background: var(--plum-dim); }
+  .home-service-card:active .home-card-icon { border-color: rgba(128, 82, 255, 0.45); }
+  .home-service-card:active .card-arrow { transform: translateX(4px); color: var(--plum); }
+
+  .reason-card:active { background: var(--plum-dim); }
+  .reason-card:active > svg { transform: scale(1.15); }
+
+  .process-step:active { background: var(--plum-dim); }
+  .process-step:active span { border-color: rgba(128, 82, 255, 0.45); }
+
+  .feature-list span:active { background: var(--plum-dim); color: var(--bone); }
+  .testimonial-card:active { background: var(--plum-dim); }
+  .service-card:active { background: var(--plum-dim); }
+  .service-item:active { background: var(--plum-dim); }
+  .seo-panel:active { background: var(--plum-dim); }
+
+  .footer-links a:active { color: var(--bone); }
+  .social-card:active { border-color: var(--plum); color: var(--bone); background: var(--plum-dim); }
+  .theme-toggle:active { color: var(--bone); border-color: rgba(255, 255, 255, 0.3); }
 }
 
 /* ─────────────────────────────────────────────

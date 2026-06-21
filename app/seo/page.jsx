@@ -5,6 +5,13 @@ export const metadata = {
   title: "SEO Services | TechByus",
   description:
       "Professional SEO services from TechByus helping businesses improve visibility, reach more customers, and grow online.",
+  alternates: { canonical: "/seo" },
+  openGraph: {
+    title: "SEO Services | TechByus",
+    description:
+        "Professional SEO services from TechByus helping businesses improve visibility, reach more customers, and grow online.",
+    url: "/seo",
+  },
 };
 
 export default function SeoPage() {

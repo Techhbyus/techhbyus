@@ -3,6 +3,12 @@ import ServiceForm from "./ServiceForm";
 export const metadata = {
   title: "Avail a Service | TechByus",
   description: "Tell us about your business and what you need. TechByus will review your goals and provide tailored digital solutions.",
+  alternates: { canonical: "/avail-service" },
+  openGraph: {
+    title: "Avail a Service | TechByus",
+    description: "Tell us about your business and what you need. TechByus will review your goals and provide tailored digital solutions.",
+    url: "/avail-service",
+  },
 };
 
 export default function AvailServicePage() {
