@@ -1,5 +1,5 @@
 const termsSections = [
-  ["1. Company Information", ["TechByus is a technology company providing digital solutions, software services, web development, IT consulting, and related technology services.", "For questions regarding these Terms, contact us at:"], ["Email: support@techbyus.com", "Website: www.techbyus.com"]],
+  ["1. Company Information", ["TechByus is a technology company providing digital solutions, software services, web development, IT consulting, and related technology services.", "For questions regarding these Terms, contact us at:"], ["Email: info@techhbyus.com", "Website: www.techhbyus.com"]],
   ["2. Acceptance of Terms", ["By accessing our Services, you confirm that:"], ["You are at least 18 years old or have legal parental/guardian consent.", "You have the legal authority to enter into these Terms.", "You agree to comply with all applicable laws and regulations."]],
   ["3. Services", ["TechByus may provide services including but not limited to:", "We reserve the right to modify, suspend, or discontinue any Service at any time without prior notice."], ["Website development", "Mobile application development", "Software solutions", "IT consulting", "Cloud services", "Maintenance and support", "Digital products and subscriptions"]],
   ["4. User Responsibilities", ["You agree not to:", "You are responsible for maintaining the confidentiality of your account credentials."], ["Use the Services for unlawful purposes", "Attempt unauthorized access to our systems", "Upload malicious code, viruses, or harmful content", "Copy, resell, or exploit our Services without permission", "Interfere with the security or operation of the Services"]],
@@ -13,7 +13,7 @@ const termsSections = [
   ["12. Termination", ["We may suspend or terminate access to our Services if you violate these Terms or engage in harmful or illegal activities.", "You may discontinue using our Services at any time."]],
   ["13. Governing Law", ["These Terms shall be governed and interpreted in accordance with the laws of India, without regard to conflict of law principles.", "Any disputes shall be subject to the jurisdiction of the courts located in Uttarakhand, India."]],
   ["14. Changes to Terms", ["TechByus reserves the right to update or modify these Terms at any time. Updated Terms will be posted on our website with the revised effective date.", "Continued use of the Services after updates constitutes acceptance of the revised Terms."]],
-  ["15. Contact Information", ["If you have any questions regarding these Terms and Conditions, contact:"], ["TechByus", "Email: support@techbyus.com", "Website: www.techbyus.com"]],
+  ["15. Contact Information", ["If you have any questions regarding these Terms and Conditions, contact:"], ["TechByus", "Email: info@techhbyus.com", "Website: www.techhbyus.com"]],
 ];
 
 export const metadata = {

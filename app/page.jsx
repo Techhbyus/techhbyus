@@ -12,7 +12,6 @@ import {
   missionItems,
   processSteps,
   reasons,
-  testimonials,
 } from "./data";
 import ParticleField from "./components/ParticleField";
 
@@ -161,20 +160,6 @@ export default function Home() {
               <SearchCheck size={18} aria-hidden="true" />
               {item}
             </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="section testimonial-section">
-        <div className="section-heading reveal">
-          <p className="eyebrow">What Clients Say</p>
-          <h2>Growth-focused support businesses can trust.</h2>
-        </div>
-        <div className="testimonial-grid">
-          {testimonials.map((quote) => (
-            <blockquote className="testimonial-card reveal" key={quote}>
-              <p>"{quote}"</p>
-            </blockquote>
           ))}
         </div>
       </section>

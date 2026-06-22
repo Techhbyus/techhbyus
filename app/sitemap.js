@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const base = "https://www.techbyus.com";
+  const base = "https://www.techhbyus.com";
   const routes = [
     { path: "/", priority: 1 },
     { path: "/services", priority: 0.8 },

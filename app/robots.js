@@ -1,5 +1,5 @@
 export default function robots() {
-  const base = "https://www.techbyus.com";
+  const base = "https://www.techhbyus.com";
 
   return {
     rules: {

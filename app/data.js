@@ -130,9 +130,3 @@ export const featureItems = [
   "Build trust with customers",
   "Create long-term growth opportunities",
 ];
-
-export const testimonials = [
-  "TechByus helped us create a professional online presence and guided us through our business growth journey.",
-  "Their team understood our vision and delivered solutions that truly helped our business grow.",
-  "Reliable, professional, and growth-focused - exactly what we needed.",
-];
