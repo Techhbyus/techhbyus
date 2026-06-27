@@ -1,7 +1,15 @@
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import ScrollReveal from "./components/ScrollReveal";
+import GSAPAnimations from "./components/GSAPAnimations";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["200", "400", "600", "700"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL("https://www.techhbyus.com"),
@@ -19,9 +27,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={outfit.variable}>
       <body>
-        <ScrollReveal />
+        <GSAPAnimations />
         <Header />
         {children}
         <Footer />

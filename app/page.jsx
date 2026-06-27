@@ -13,8 +13,6 @@ import {
   processSteps,
   reasons,
 } from "./data";
-import ParticleField from "./components/ParticleField";
-
 export const metadata = {
   alternates: { canonical: "/" },
   openGraph: {
@@ -28,8 +26,7 @@ export default function Home() {
   return (
     <main>
       <section className="home-hero section">
-        <ParticleField className="home-hero-particles" />
-        <div className="home-hero-content reveal-left">
+<div className="home-hero-content reveal-left">
           <p className="eyebrow">Technology and business growth partner</p>
           <h1>We Help Businesses Grow Digitally</h1>
           <p className="home-hero-lead">
