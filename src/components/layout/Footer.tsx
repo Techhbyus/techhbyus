@@ -4,8 +4,16 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 
-const socialLinks = [
+interface SocialLink {
+  label: string;
+  href: string;
+  Icon: IconType;
+  className: string;
+}
+
+const socialLinks: SocialLink[] = [
   {
     label: "Instagram",
     href: "https://www.instagram.com/techhbyus/",

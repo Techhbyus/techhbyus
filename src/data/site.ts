@@ -10,9 +10,38 @@ import {
   ShieldCheck,
   Sparkles,
   TrendingUp,
+  type LucideIcon,
 } from "lucide-react";
 
-export const navItems = [
+export interface NavItem {
+  label: string;
+  href: string;
+}
+
+export interface ServiceItem {
+  title: string;
+  text: string;
+  detail: string;
+  points: string[];
+}
+
+export interface SeoItem {
+  title: string;
+  text: string;
+}
+
+export interface IconedItem {
+  title: string;
+  text: string;
+  Icon: LucideIcon;
+}
+
+export interface ProcessStep {
+  title: string;
+  text: string;
+}
+
+export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Avail service", href: "/avail-service" },
@@ -20,7 +49,7 @@ export const navItems = [
 ];
 
 // Used on /services page — accordion cards with detail + bullet points
-export const services = [
+export const services: ServiceItem[] = [
   {
     title: "Business Websites",
     text: "Clean, professional pages for startups, shops, consultants and service providers.",
@@ -47,7 +76,7 @@ export const services = [
   },
 ];
 
-export const seoItems = [
+export const seoItems: SeoItem[] = [
   {
     title: "On-page SEO",
     text: "Clear headings, metadata, keyword-focused content sections and internal linking.",
@@ -63,7 +92,7 @@ export const seoItems = [
 ];
 
 // Home page data
-export const missionItems = [
+export const missionItems: string[] = [
   "Build your online identity",
   "Help your business grow faster",
   "Expand your reach to more customers",
@@ -72,7 +101,7 @@ export const missionItems = [
 ];
 
 // Used on home page — overview grid (different from /services accordion)
-export const homeServices = [
+export const homeServices: IconedItem[] = [
   {
     title: "Website Development",
     text: "Professional, modern, and responsive websites that represent your brand and help convert visitors into customers.",
@@ -105,7 +134,7 @@ export const homeServices = [
   },
 ];
 
-export const reasons = [
+export const reasons: IconedItem[] = [
   { title: "Trusted Partnership", text: "We work closely with you and treat your business goals like our own.", Icon: Handshake },
   { title: "Complete Digital Solutions", text: "From website development to business consulting, everything is managed in one place.", Icon: ShieldCheck },
   { title: "Customized Strategies", text: "Every business is unique, and we create personalized solutions that fit your vision.", Icon: Lightbulb },
@@ -113,14 +142,14 @@ export const reasons = [
   { title: "Affordable & Scalable", text: "Smart solutions that work for both startups and growing businesses.", Icon: BadgeCheck },
 ];
 
-export const processSteps = [
+export const processSteps: ProcessStep[] = [
   { title: "Understand Your Business", text: "We learn about your goals, challenges, and vision." },
   { title: "Create the Right Strategy", text: "We build a roadmap for your website, branding, and growth plan." },
   { title: "Build & Launch", text: "Our team develops professional digital solutions tailored to your business." },
   { title: "Grow Together", text: "We continue supporting your business growth and audience expansion." },
 ];
 
-export const featureItems = [
+export const featureItems: string[] = [
   "Build a professional online presence",
   "Reach more customers",
   "Improve business credibility",

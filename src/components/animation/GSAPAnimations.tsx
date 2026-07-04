@@ -8,15 +8,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // Split element text into word spans. Returns words array + DOM restore function.
-function splitWords(el) {
+function splitWords(el: HTMLElement) {
   const original = el.innerHTML;
-  el.innerHTML = el.textContent
+  el.innerHTML = (el.textContent ?? "")
     .trim()
     .split(/\s+/)
     .map(w => `<span class="st-word-wrap"><span class="st-word">${w}</span></span>`)
     .join(" ");
   return {
-    words: Array.from(el.querySelectorAll(".st-word")),
+    words: Array.from(el.querySelectorAll<HTMLElement>(".st-word")),
     restore: () => { el.innerHTML = original; },
   };
 }
@@ -33,8 +33,8 @@ export default function GSAPAnimations() {
       return;
     }
 
-    const restorers = [];
-    const handled   = new Set(); // elements handled here, skipped by catch-all loops
+    const restorers: Array<() => void> = [];
+    const handled = new Set<Element>(); // elements handled here, skipped by catch-all loops
 
     const ctx = gsap.context(() => {
 
@@ -45,7 +45,7 @@ export default function GSAPAnimations() {
       if (hero) {
         const content   = hero.querySelector(".home-hero-content");
         const eyebrow   = hero.querySelector(".eyebrow");
-        const heroH1    = hero.querySelector("h1");
+        const heroH1    = hero.querySelector<HTMLElement>("h1");
         const lead      = hero.querySelector(".home-hero-lead");
         const heroCopy  = hero.querySelector(".home-hero-copy");
         const actions   = hero.querySelector(".hero-actions");
@@ -120,9 +120,9 @@ export default function GSAPAnimations() {
       // ────────────────────────────────────────────────────────────────────
       // SECTION HEADINGS — word-split reveal, fires on all pages
       // ────────────────────────────────────────────────────────────────────
-      gsap.utils.toArray(".section-heading").forEach(heading => {
+      gsap.utils.toArray<Element>(".section-heading").forEach(heading => {
         const eyebrow = heading.querySelector(".eyebrow");
-        const h2      = heading.querySelector("h2");
+        const h2      = heading.querySelector<HTMLElement>("h2");
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -155,7 +155,7 @@ export default function GSAPAnimations() {
       // ────────────────────────────────────────────────────────────────────
       // MISSION LIST — pills slide from left with stagger
       // ────────────────────────────────────────────────────────────────────
-      const missionItems = gsap.utils.toArray(".mission-list li");
+      const missionItems = gsap.utils.toArray<Element>(".mission-list li");
       if (missionItems.length) {
         gsap.set(missionItems, { x: -24, opacity: 0 });
         gsap.to(missionItems, {
@@ -174,7 +174,7 @@ export default function GSAPAnimations() {
         { items: ".process-step",      trigger: ".process-grid"      },
         { items: ".about-layout p",    trigger: ".about-layout"      },
       ].forEach(({ items, trigger }) => {
-        const els    = gsap.utils.toArray(items);
+        const els    = gsap.utils.toArray<Element>(items);
         const parent = document.querySelector(trigger);
         if (!els.length || !parent) return;
 
@@ -191,7 +191,7 @@ export default function GSAPAnimations() {
       // of items appearing one-by-one as you scroll past the section.
       // ────────────────────────────────────────────────────────────────────
       const featureSection = document.querySelector(".feature-section");
-      const featureItems   = gsap.utils.toArray(".feature-list span");
+      const featureItems   = gsap.utils.toArray<Element>(".feature-list span");
       if (featureSection && featureItems.length) {
         gsap.set(featureItems, { scale: 0.94, opacity: 0 });
         gsap.to(featureItems, {
@@ -210,7 +210,7 @@ export default function GSAPAnimations() {
       // Handles all remaining .reveal / .reveal-left / .reveal-right elements
       // on any page. Elements already handled above are skipped via `handled`.
       // ────────────────────────────────────────────────────────────────────
-      gsap.utils.toArray(".reveal").forEach(el => {
+      gsap.utils.toArray<Element>(".reveal").forEach(el => {
         if (handled.has(el) || el.closest(".home-hero")) return;
         gsap.fromTo(el,
           { y: 28, opacity: 0 },
@@ -221,7 +221,7 @@ export default function GSAPAnimations() {
         );
       });
 
-      gsap.utils.toArray(".reveal-left").forEach(el => {
+      gsap.utils.toArray<Element>(".reveal-left").forEach(el => {
         if (handled.has(el) || el.closest(".home-hero")) return;
         gsap.fromTo(el,
           { x: -32, opacity: 0 },
@@ -232,7 +232,7 @@ export default function GSAPAnimations() {
         );
       });
 
-      gsap.utils.toArray(".reveal-right").forEach(el => {
+      gsap.utils.toArray<Element>(".reveal-right").forEach(el => {
         if (handled.has(el) || el.closest(".home-hero")) return;
         gsap.fromTo(el,
           { x: 32, opacity: 0 },

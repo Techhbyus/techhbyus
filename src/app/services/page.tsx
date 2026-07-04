@@ -1,7 +1,8 @@
-import ServiceCards from "../components/ServiceCards";
-import { services } from "../data";
+import type { Metadata } from "next";
+import ServiceCards from "@/components/home/ServiceCards";
+import { services } from "@/data/site";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Services | TechByus",
   description:
       "Helping small businesses grow through website development, hosting, maintenance, business consulting, and digital growth solutions.",

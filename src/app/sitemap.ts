@@ -1,4 +1,6 @@
-export default function sitemap() {
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.techhbyus.com";
   const routes = [
     { path: "/", priority: 1 },

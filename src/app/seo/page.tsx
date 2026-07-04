@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { seoItems } from "../data";
+import { seoItems } from "@/data/site";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "SEO Services | TechByus",
   description:
       "Professional SEO services from TechByus helping businesses improve visibility, reach more customers, and grow online.",

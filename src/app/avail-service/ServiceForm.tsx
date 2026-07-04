@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ServiceRequestPayload, ServiceRequestResponse } from "@/types/serviceRequest";
 
 const serviceOptions = [
   "Business Website",
@@ -17,17 +18,18 @@ export default function ServiceForm() {
   const [formMessage, setFormMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
 
-    const formData = new FormData(event.currentTarget);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      business: formData.get("business"),
-      service: formData.get("service"),
-      details: formData.get("details"),
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const data: ServiceRequestPayload = {
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      business: String(formData.get("business") ?? ""),
+      service: String(formData.get("service") ?? ""),
+      details: String(formData.get("details") ?? ""),
     };
 
     try {
@@ -37,7 +39,7 @@ export default function ServiceForm() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      const result: ServiceRequestResponse = await response.json();
 
       if (result.success) {
         setFormMessage(`Thank you ${data.name}! We'll review your request and be in touch shortly.`);
@@ -83,7 +85,7 @@ export default function ServiceForm() {
         Project Details
         <textarea
           name="details"
-          rows="5"
+          rows={5}
           placeholder="Tell us about your business, goals, and what you want to achieve."
         />
       </label>

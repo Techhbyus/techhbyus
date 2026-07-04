@@ -1,6 +1,7 @@
+import type { Metadata } from "next";
 import ServiceForm from "./ServiceForm";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Avail a Service | TechByus",
   description: "Tell us about your business and what you need. TechByus will review your goals and provide tailored digital solutions.",
   alternates: { canonical: "/avail-service" },

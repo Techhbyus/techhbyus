@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
+type Theme = "dark" | "light";
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme") || "dark";
+    const saved = (localStorage.getItem("theme") as Theme | null) || "dark";
     setTheme(saved);
     document.documentElement.dataset.theme = saved;
   }, []);

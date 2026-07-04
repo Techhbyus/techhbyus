@@ -1,8 +1,9 @@
+import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import GSAPAnimations from "./components/GSAPAnimations";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import GSAPAnimations from "@/components/animation/GSAPAnimations";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -11,7 +12,7 @@ const outfit = Outfit({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://www.techhbyus.com"),
   title: "TechByus | We build website - you grow your business",
   description: "TechByus builds modern websites, service platforms, and SEO foundations for growing businesses.",
@@ -25,7 +26,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={outfit.variable}>
       <body>

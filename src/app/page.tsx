@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -12,8 +13,9 @@ import {
   missionItems,
   processSteps,
   reasons,
-} from "./data";
-export const metadata = {
+} from "@/data/site";
+
+export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: "TechByus | We build website - you grow your business",

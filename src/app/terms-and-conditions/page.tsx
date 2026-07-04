@@ -1,4 +1,8 @@
-const termsSections = [
+import type { Metadata } from "next";
+
+type TermsSection = [title: string, body: string[], list?: string[]];
+
+const termsSections: TermsSection[] = [
   ["1. Company Information", ["TechByus is a technology company providing digital solutions, software services, web development, IT consulting, and related technology services.", "For questions regarding these Terms, contact us at:"], ["Email: info@techhbyus.com", "Website: www.techhbyus.com"]],
   ["2. Acceptance of Terms", ["By accessing our Services, you confirm that:"], ["You are at least 18 years old or have legal parental/guardian consent.", "You have the legal authority to enter into these Terms.", "You agree to comply with all applicable laws and regulations."]],
   ["3. Services", ["TechByus may provide services including but not limited to:", "We reserve the right to modify, suspend, or discontinue any Service at any time without prior notice."], ["Website development", "Mobile application development", "Software solutions", "IT consulting", "Cloud services", "Maintenance and support", "Digital products and subscriptions"]],
@@ -16,7 +20,7 @@ const termsSections = [
   ["15. Contact Information", ["If you have any questions regarding these Terms and Conditions, contact:"], ["TechByus", "Email: info@techhbyus.com", "Website: www.techhbyus.com"]],
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Terms and Conditions | TechByus",
   description: "Terms and conditions for TechByus website services.",
   alternates: { canonical: "/terms-and-conditions" },

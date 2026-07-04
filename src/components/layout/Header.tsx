@@ -5,14 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navItems } from "../data";
-import ThemeToggle from "./ThemeToggle";
+import { navItems } from "@/data/site";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [hoveredHref, setHoveredHref] = useState(null);
+  const [hoveredHref, setHoveredHref] = useState<string | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 920px)");

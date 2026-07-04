@@ -2,8 +2,13 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import type { ServiceItem } from "@/data/site";
 
-export default function ServiceCards({ services }) {
+interface ServiceCardsProps {
+  services: ServiceItem[];
+}
+
+export default function ServiceCards({ services }: ServiceCardsProps) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
