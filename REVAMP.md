@@ -4,10 +4,11 @@ Running log of the 2026-07-05 trust/credibility revamp. Update this file as step
 
 ## ⚠ Live site is stale — deploy needed
 
-Confirmed 2026-07-05 via direct fetch of `techhbyus.com`: it's hosted on **Vercel** and still serving the **old** copy ("We Help Businesses Grow Digitally," old trust section, no pricing, no contact info). None of steps 1-5 below are live — they only exist on this local working copy. Deploying (push to whatever branch/remote triggers the Vercel build) is now the single highest-priority action; everything else in this doc is invisible to real visitors until that happens.
+Confirmed 2026-07-05 via direct fetch of `techhbyus.com`: it's hosted on **Vercel** and still serving the **old** copy ("We Help Businesses Grow Digitally," old trust section, no pricing, no contact info). Steps 1-9 were committed and pushed to `naman/nextjs-ts-restructure` on 2026-07-05, but **that's a feature branch, not what Vercel deploys from** — pushing it does not put any of this in front of real visitors. Merging it into whatever branch (`main`/`master`) is wired to the production Vercel deployment is still the single highest-priority action.
 
 ## Done
 
+- **Committed & pushed** (2026-07-05): steps 1-9 landed in 4 commits on `naman/nextjs-ts-restructure` (`7a2df42`, `85fccfb`, `2559fc8`, `819fd99`), audited for duplication first (see git log). Confirm what branch Vercel actually builds from before assuming this is live — see the warning above.
 - **Stack migration** (2026-07-04): moved to `src/` layout, React 19 + TypeScript strict mode, controller/service/repository backend split. See `CLAUDE.md` for the architecture.
 - **Visual redesign** (June 2026): void-black / Acronym / Plum-Voltage design system, particle hero, animated nav.
 - **Step 1 — Hero + trust copy rewrite**: killed the "grow your business digitally" buzzword copy in `page.tsx` hero and trust-band, plus `missionItems`/`reasons` in `site.ts`. Replaced with concrete, verifiable facts — real stack, real shipped work (PrimeCare-style body-mapping tool, a job-matching platform for a recruitment consultancy), real 4-6 week turnaround.
