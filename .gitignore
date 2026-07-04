@@ -15,6 +15,7 @@ pnpm-debug.log*
 graphify-out/
 .graphify_*
 
-# markdown files (CLAUDE.md is the only exception)
+# markdown files (CLAUDE.md and REVAMP.md are tracked)
 *.md
 !CLAUDE.md
+!REVAMP.md
