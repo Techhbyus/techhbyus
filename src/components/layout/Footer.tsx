@@ -5,6 +5,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 import type { IconType } from "react-icons";
+import { contactInfo } from "@/data/site";
 
 interface SocialLink {
   label: string;
@@ -46,6 +47,19 @@ export default function Footer() {
             <p>
               We build websites — you grow your business.
             </p>
+
+            <div className="footer-contact">
+              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+              {contactInfo.phone && (
+                <a
+                  href={`https://wa.me/${contactInfo.phone.replace(/\D/g, "")}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {contactInfo.phone}
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Navigation */}

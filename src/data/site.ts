@@ -1,13 +1,10 @@
 import {
-  BadgeCheck,
   BriefcaseBusiness,
   Globe2,
   Handshake,
-  Lightbulb,
   Megaphone,
   Rocket,
   Settings,
-  ShieldCheck,
   Sparkles,
   TrendingUp,
   type LucideIcon,
@@ -17,6 +14,17 @@ export interface NavItem {
   label: string;
   href: string;
 }
+
+export interface ContactInfo {
+  email: string;
+  phone: string;
+}
+
+// phone left blank until a dedicated business number/WhatsApp is set up
+export const contactInfo: ContactInfo = {
+  email: "info@techhbyus.com",
+  phone: "",
+};
 
 export interface ServiceItem {
   title: string;
@@ -41,11 +49,66 @@ export interface ProcessStep {
   text: string;
 }
 
+export interface PricingTier {
+  title: string;
+  priceLabel: string;
+  features: string[];
+  ctaService: string;
+}
+
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Avail service", href: "/avail-service" },
   { label: "SEO", href: "/seo" },
+];
+
+// Canonical "what do you need" options — shared by the avail-service form
+// and the pricing tier CTAs (each tier's ctaService must match one exactly).
+export const serviceOptions: string[] = [
+  "New website",
+  "Existing site — fixes & features",
+  "Custom platform / web app",
+  "SEO",
+  "Maintenance",
+];
+
+export const pricingTiers: PricingTier[] = [
+  {
+    title: "Starter / Landing Site",
+    priceLabel: "Starting from ₹15,000",
+    features: [
+      "Up to 3 pages (Home, About, Contact)",
+      "Contact form wired to your email",
+      "Mobile-responsive layout",
+      "Basic on-page SEO (titles, meta descriptions)",
+      "1 round of revisions",
+    ],
+    ctaService: "New website",
+  },
+  {
+    title: "Business Website",
+    priceLabel: "Starting from ₹25,000",
+    features: [
+      "Up to 8 pages",
+      "Contact or enquiry form with service routing",
+      "On-page SEO across every page",
+      "2 rounds of revisions",
+      "Post-launch content updates handled by us — no CMS login needed",
+    ],
+    ctaService: "New website",
+  },
+  {
+    title: "Custom Platform / Web App",
+    priceLabel: "Custom quote",
+    features: [
+      "Custom interactive features — booking flows, dashboards, calculators",
+      "Database-backed logic (MySQL) when the project needs real data, not just pages",
+      "Third-party integrations (payments, calendars, APIs) as needed",
+      "Ongoing support and maintenance available",
+    ],
+    ctaService: "Custom platform / web app",
+  },
 ];
 
 // Used on /services page — accordion cards with detail + bullet points
@@ -93,11 +156,11 @@ export const seoItems: SeoItem[] = [
 
 // Home page data
 export const missionItems: string[] = [
-  "Build your online identity",
-  "Help your business grow faster",
-  "Expand your reach to more customers",
-  "Create smart digital strategies",
-  "Support your long-term success",
+  "Custom interactive UI - booking flows, dashboards, calculators - not static templates",
+  "Next.js, React, TypeScript, Tailwind - the stack behind production apps",
+  "MySQL-backed features when your site needs real logic, not just pages",
+  "Typical build: 4-6 weeks from kickoff to launch",
+  "Two developers, every line of code - no outsourced templates",
 ];
 
 // Used on home page — overview grid (different from /services accordion)
@@ -135,11 +198,11 @@ export const homeServices: IconedItem[] = [
 ];
 
 export const reasons: IconedItem[] = [
-  { title: "Trusted Partnership", text: "We work closely with you and treat your business goals like our own.", Icon: Handshake },
-  { title: "Complete Digital Solutions", text: "From website development to business consulting, everything is managed in one place.", Icon: ShieldCheck },
-  { title: "Customized Strategies", text: "Every business is unique, and we create personalized solutions that fit your vision.", Icon: Lightbulb },
-  { title: "Focused on Growth", text: "Our goal is not just to build websites - it is to help your business grow continuously.", Icon: Rocket },
-  { title: "Affordable & Scalable", text: "Smart solutions that work for both startups and growing businesses.", Icon: BadgeCheck },
+  { title: "Custom Builds, Not Templates", text: "React and Next.js applications with real logic - interactive tools, booking systems, admin panels - not a theme with your logo swapped in.", Icon: Sparkles },
+  { title: "Modern, Typed Stack", text: "TypeScript in strict mode, Tailwind CSS, and a MySQL-backed backend when a project needs one - the same stack used for production software.", Icon: Settings },
+  { title: "4-6 Week Delivery", text: "Most projects go from kickoff to launch in 4-6 weeks, including custom features.", Icon: Rocket },
+  { title: "Direct Access to the Builders", text: "You work directly with the two developers building your project - no account managers, no outsourcing.", Icon: Handshake },
+  { title: "Built to Scale", text: "Architecture that holds up as your business grows, not a static site you rebuild in a year.", Icon: TrendingUp },
 ];
 
 export const processSteps: ProcessStep[] = [

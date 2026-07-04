@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import ServiceForm from "./ServiceForm";
 
 export const metadata: Metadata = {
@@ -40,7 +41,9 @@ export default function AvailServicePage() {
           </ul>
         </div>
 
-        <ServiceForm />
+        <Suspense fallback={null}>
+          <ServiceForm />
+        </Suspense>
 
       </section>
     </main>

@@ -1,20 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { serviceOptions } from "@/data/site";
 import type { ServiceRequestPayload, ServiceRequestResponse } from "@/types/serviceRequest";
 
-const serviceOptions = [
-  "Business Website",
-  "Landing Page",
-  "E-commerce Website",
-  "Website Redesign",
-  "Website Hosting & Maintenance",
-  "Business Growth Consulting",
-  "Audience Growth Strategy",
-  "Business Model Expansion",
-];
-
 export default function ServiceForm() {
+  const searchParams = useSearchParams();
+  const serviceParam = searchParams.get("service") ?? "";
+  const initialService = serviceOptions.includes(serviceParam) ? serviceParam : "";
+  const packageName = searchParams.get("package");
+  const initialDetails = packageName ? `Interested in the ${packageName} package.` : "";
+
   const [formMessage, setFormMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -27,9 +24,9 @@ export default function ServiceForm() {
     const data: ServiceRequestPayload = {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
-      business: String(formData.get("business") ?? ""),
       service: String(formData.get("service") ?? ""),
       details: String(formData.get("details") ?? ""),
+      honeypot: String(formData.get("company_site") ?? ""),
     };
 
     try {
@@ -62,19 +59,14 @@ export default function ServiceForm() {
       </label>
 
       <label>
-        Business Email
-        <input type="email" name="email" placeholder="you@example.com" required />
+        Email or Phone
+        <input type="text" name="email" placeholder="you@example.com or your phone number" required />
       </label>
 
       <label>
-        Company / Business Name
-        <input type="text" name="business" placeholder="Enter your business name" />
-      </label>
-
-      <label>
-        Service Needed
-        <select name="service" required>
-          <option value="">Select a service</option>
+        What Do You Need?
+        <select name="service" required defaultValue={initialService}>
+          <option value="">Select an option</option>
           {serviceOptions.map((option) => (
             <option key={option} value={option}>{option}</option>
           ))}
@@ -82,17 +74,29 @@ export default function ServiceForm() {
       </label>
 
       <label>
-        Project Details
+        Anything Else? (optional)
         <textarea
           name="details"
-          rows={5}
-          placeholder="Tell us about your business, goals, and what you want to achieve."
+          rows={3}
+          placeholder="A few words about what you're looking for."
+          defaultValue={initialDetails}
         />
       </label>
+
+      <input
+        type="text"
+        name="company_site"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hp-field"
+      />
 
       <button className="btn primary form-submit" type="submit" disabled={loading}>
         {loading ? "Submitting..." : "Submit Request"}
       </button>
+
+      <p className="form-note">We reply within 24 hours.</p>
 
       <p className="form-message" role="status" aria-live="polite">
         {formMessage}

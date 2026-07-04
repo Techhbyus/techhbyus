@@ -335,6 +335,19 @@ h3 {
   margin-top: 30px;
 }
 
+.hero-contact-note {
+  margin-top: 16px;
+  color: var(--smoke);
+  font-size: .825rem;
+}
+
+.hero-contact-note a {
+  color: var(--bone);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── GROWTH PANEL ── */
 .growth-panel {
   min-width: 0;
@@ -530,6 +543,175 @@ h3 {
 .home-service-card:hover .card-arrow {
   transform: translateX(4px);
   color: var(--plum);
+}
+
+/* ── ABOUT / TEAM (drafted, not wired into a route yet — see REVAMP.md) ── */
+.about-team-story {
+  max-width: 780px;
+  margin: 20px 0 0;
+  color: var(--ash);
+  line-height: 1.75;
+}
+
+/* Shared wrapper for the 2-3 col "1px-gap card grid" pattern used by the
+   team, testimonial, and pricing sections — only column count differs. */
+.team-grid,
+.testimonial-grid,
+.pricing-grid {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.team-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 36px;
+}
+
+.team-card {
+  min-width: 0;
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding: 28px;
+  background: var(--void);
+}
+
+.team-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.team-card h3 { color: var(--bone); }
+
+.team-role {
+  color: var(--plum);
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── TESTIMONIAL STRIP (drafted, not wired in yet — see REVAMP.md) ── */
+.testimonial-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.testimonial-card {
+  min-width: 0;
+  margin: 0;
+  padding: 28px;
+  background: var(--void);
+}
+
+.testimonial-card p {
+  margin: 0;
+  color: var(--bone);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.testimonial-card cite {
+  display: block;
+  margin-top: 14px;
+  color: var(--smoke);
+  font-size: .8rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ── PORTFOLIO (drafted, not routed yet — see REVAMP.md) ── */
+.portfolio-list {
+  display: grid;
+  gap: 24px;
+}
+
+.case-study-card {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--void);
+}
+
+.case-study-card h2 { color: var(--bone); }
+
+.case-study-block {
+  margin-top: 20px;
+}
+
+.case-study-block h3 {
+  color: var(--amber);
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.case-study-block p {
+  color: var(--ash);
+  line-height: 1.7;
+}
+
+.case-study-screenshot {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.case-study-quote {
+  margin: 20px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid var(--plum);
+  color: var(--bone);
+  font-style: italic;
+}
+
+/* ── PRICING ── */
+.pricing-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pricing-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px;
+  background: var(--void);
+  transition: background .15s ease;
+}
+
+.pricing-card:hover { background: var(--plum-dim); }
+
+.pricing-card h3 {
+  color: var(--bone);
+}
+
+.pricing-price {
+  margin: 0;
+  color: var(--amber);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.pricing-card .check-list {
+  flex: 1;
+  margin-top: 4px;
+}
+
+.pricing-cta {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 /* ── WHY SECTION ── */
@@ -906,6 +1088,24 @@ textarea { resize: vertical; }
   font-weight: 600;
 }
 
+.form-note {
+  margin: 12px 0 0;
+  color: var(--smoke);
+  font-size: .8rem;
+}
+
+.hp-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 /* ── SEO PAGE ── */
 .seo-layout {
   display: grid;
@@ -1012,6 +1212,22 @@ textarea { resize: vertical; }
   line-height: 1.7;
   font-size: .825rem;
 }
+
+.footer-contact {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.footer-contact a {
+  color: var(--ash);
+  font-size: .825rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color .15s ease;
+}
+
+.footer-contact a:hover { color: var(--bone); }
 
 .footer-links {
   display: grid;
@@ -1137,6 +1353,7 @@ textarea { resize: vertical; }
 @media (max-width: 1080px) {
   .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -1181,7 +1398,10 @@ textarea { resize: vertical; }
   .home-hero { gap: 36px; }
 
   .about-layout,
-  .home-service-grid { grid-template-columns: 1fr; }
+  .home-service-grid,
+  .pricing-grid,
+  .team-grid,
+  .testimonial-grid { grid-template-columns: 1fr; }
 
   .reason-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
@@ -1245,6 +1465,10 @@ textarea { resize: vertical; }
   .about-layout p,
   .home-service-card,
   .reason-card,
+  .pricing-card,
+  .team-card,
+  .testimonial-card,
+  .case-study-card,
   .process-step { padding: 18px; }
 
   .final-cta {
@@ -1272,6 +1496,10 @@ textarea { resize: vertical; }
 
   .home-service-card,
   .reason-card,
+  .pricing-card,
+  .team-card,
+  .testimonial-card,
+  .case-study-card,
   .process-step,
   .about-layout p { padding: 14px; }
 }
@@ -1372,6 +1600,9 @@ textarea { resize: vertical; }
 [data-theme="light"] .about-layout,
 [data-theme="light"] .home-service-grid,
 [data-theme="light"] .reason-grid,
+[data-theme="light"] .pricing-grid,
+[data-theme="light"] .team-grid,
+[data-theme="light"] .testimonial-grid,
 [data-theme="light"] .service-grid,
 [data-theme="light"] .feature-list,
 [data-theme="light"] .services-list,
@@ -1384,6 +1615,9 @@ textarea { resize: vertical; }
 [data-theme="light"] .about-layout p,
 [data-theme="light"] .home-service-card,
 [data-theme="light"] .reason-card,
+[data-theme="light"] .pricing-card,
+[data-theme="light"] .team-card,
+[data-theme="light"] .testimonial-card,
 [data-theme="light"] .service-card,
 [data-theme="light"] .feature-list span,
 [data-theme="light"] .service-item,
@@ -1433,6 +1667,8 @@ textarea { resize: vertical; }
 /* ── h3 / body text inside white cards ── */
 [data-theme="light"] .home-service-card h3,
 [data-theme="light"] .reason-card h3,
+[data-theme="light"] .pricing-card h3,
+[data-theme="light"] .team-card h3,
 [data-theme="light"] .service-item h3,
 [data-theme="light"] .seo-panel h3,
 [data-theme="light"] .feature-list span { color: var(--bone); }
