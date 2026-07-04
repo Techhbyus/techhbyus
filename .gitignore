@@ -2,6 +2,7 @@ node_modules
 .next
 out
 dist
+*.tsbuildinfo
 .env
 .env.local
 .next-dev.log
@@ -14,6 +15,7 @@ pnpm-debug.log*
 graphify-out/
 .graphify_*
 
-# markdown files (CLAUDE.md is the only exception)
+# markdown files (CLAUDE.md and REVAMP.md are tracked)
 *.md
 !CLAUDE.md
+!REVAMP.md
