@@ -37,7 +37,7 @@ export default function TermsAndConditionsPage() {
       <section className="section page-section terms-page">
         <div className="section-heading reveal"><p className="eyebrow">Terms and conditions</p><h1>Terms and Conditions - TechByus</h1><p>Last Updated: May 24, 2026</p></div>
         <div className="terms-content reveal">
-          <p>Welcome to TechByus. These Terms and Conditions ("Terms") govern your access to and use of our website, products, software, and services ("Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
+          <p>Welcome to TechByus. These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of our website, products, software, and services (&quot;Services&quot;). By accessing or using our Services, you agree to be bound by these Terms.</p>
           <p>If you do not agree with any part of these Terms, please do not use our Services.</p>
           {termsSections.map(([title, body, list]) => (
             <article className="terms-block" key={title}>

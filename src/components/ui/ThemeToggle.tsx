@@ -10,6 +10,12 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const saved = (localStorage.getItem("theme") as Theme | null) || "dark";
+    // Deliberately reading localStorage post-mount, not via a lazy useState
+    // initializer: the initializer would run during SSR too (no localStorage,
+    // would crash) and desync the server-rendered "dark" default from the
+    // client's real preference, causing a hydration mismatch. The one-frame
+    // flicker here is the intentional trade-off.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(saved);
     document.documentElement.dataset.theme = saved;
   }, []);

@@ -19,7 +19,7 @@ export default function AvailServicePage() {
 
         <div className="avail-copy">
           <p className="eyebrow">Get Started</p>
-          <h1>Let's Build & Grow Your Business Together</h1>
+          <h1>Let&apos;s Build & Grow Your Business Together</h1>
           <p>
             At TechByus, we help businesses build professional websites,
             improve their online presence, grow their audience,
