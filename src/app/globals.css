@@ -1228,6 +1228,77 @@ textarea { resize: vertical; }
   pointer-events: none;
 }
 
+/* ── SERVICE FORM STEPS ── */
+.step-progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.step-dot {
+  height: 4px;
+  flex: 1;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.step-dot.active { background: var(--plum); }
+
+.step-label {
+  margin: 0 0 18px;
+  color: var(--smoke);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.step-heading { margin: 0 0 16px; }
+
+.step-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.step-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--bone);
+  font-size: .825rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.step-pill:hover { border-color: var(--border-hover); background: var(--plum-dim); }
+
+.step-pill.selected {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: #ffffff;
+}
+
+.step-other-input { margin-top: 14px; }
+
+.step-error {
+  margin: 12px 0 0;
+  color: var(--amber);
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.step-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.step-nav .btn { flex: 1; }
+
 /* ── SEO PAGE ── */
 .seo-layout {
   display: grid;

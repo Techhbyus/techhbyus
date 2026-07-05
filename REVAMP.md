@@ -163,6 +163,36 @@ discussion/decisions logged in the session that produced this — short version:
   (`.card-arrow`, `.template-tag`, `.testimonial-stars`, `.section-heading.centered`)
   that were added speculatively but never used in any component.
 
+## Step 15 — Multi-step service form (2026-07-05, later same day)
+
+- Replaced the flat 4-field `ServiceForm.tsx` with a 3-step wizard: (1) "What
+  do you need?" as selectable pills built from `serviceOptions`, plus a
+  "Something else" pill that reveals a free-text input; (2) Name/Organization
+  + Email/Phone; (3) optional "Anything else?" details + submit. Progress
+  dots + "Step X of 3" label at top, Back/Continue nav between steps.
+- Kept the exact same wire contract — `ServiceRequestPayload` (name, email,
+  service, details, honeypot) — so `route.ts` → controller → service →
+  repository needed zero changes. Fields are controlled React state instead
+  of `FormData` off the DOM, since steps unmount each other's inputs; the
+  honeypot input stays permanently mounted (not step-gated) so it's still
+  present in `FormData` at submit time regardless of which step the user is on.
+  Enter key in a step's text input advances to the next step instead of
+  submitting early (no submit button exists in the DOM until the last step).
+- Deep-link pre-fill from pricing CTAs (`?service=...&package=...`) still
+  works the same way — pre-selects the matching pill / pre-fills the details
+  textarea, unchanged from the old form's logic.
+- New CSS added to `globals.css` (`.step-progress`, `.step-dot`, `.step-pills`,
+  `.step-pill(.selected)`, `.step-other-input`, `.step-error`, `.step-nav`) —
+  reuses existing tokens only (`--plum`, `--amber`, `--border`, `--bone`), no
+  new colors introduced.
+- Verified via `npm run typecheck` + `npm run build` (both clean) and by
+  curling the rendered `/avail-service` HTML in dev mode — confirmed 7 pills
+  render (6 service options + "Something else"), 3 progress dots with 1
+  active, "Continue" button (not the submit button) on step 1. **No visual
+  browser check** — same limitation noted in Step 11, no chromium-cli/
+  Playwright available in this environment. Click through manually before
+  calling this fully signed off.
+
 ## Still open (not started)
 
 - **Deploy this branch/working copy** — see the warning at the top of this file. Nothing below matters to real visitors until this happens.
