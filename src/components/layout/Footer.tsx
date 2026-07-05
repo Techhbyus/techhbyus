@@ -5,7 +5,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 import type { IconType } from "react-icons";
-import { contactInfo } from "@/data/site";
+import { contactInfo, homeServices } from "@/data/site";
 
 interface SocialLink {
   label: string;
@@ -41,14 +41,40 @@ export default function Footer() {
         <div className="footer-inner">
 
           {/* Brand */}
-          <div className="footer-brand">
-            <strong>TechByus</strong>
+          <div className="footer-brand footer-col">
+            <strong>Techhbyus</strong>
 
             <p>
               We build websites — you grow your business.
             </p>
+          </div>
 
-            <div className="footer-contact">
+          {/* Services */}
+          <nav className="footer-col" aria-label="Services">
+            <h4>Services</h4>
+            <div className="footer-links">
+              {homeServices.map((service) => (
+                <Link key={service.title} href="/services">{service.title}</Link>
+              ))}
+            </div>
+          </nav>
+
+          {/* Quick links */}
+          <nav className="footer-col" aria-label="Quick links">
+            <h4>Quick Links</h4>
+            <div className="footer-links">
+              <Link href="/">Home</Link>
+              <Link href="/pricing">Pricing</Link>
+              <Link href="/about">About</Link>
+              <Link href="/avail-service">Contact</Link>
+              <Link href="/terms-and-conditions">Terms & Conditions</Link>
+            </div>
+          </nav>
+
+          {/* Contact */}
+          <div className="footer-col">
+            <h4>Contact Us</h4>
+            <div className="footer-links">
               <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               {contactInfo.phone && (
                 <a
@@ -62,31 +88,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
-          <nav
-              className="footer-links"
-              aria-label="Footer navigation"
-          >
-            <Link href="/avail-service">
-              Contact Us
-            </Link>
+        </div>
 
-            <Link href="/terms-and-conditions">
-              Terms & Conditions
-            </Link>
-          </nav>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} Techhbyus. All rights reserved.</span>
 
-          {/* Social */}
           <div className="footer-social">
-
-          <span className="social-heading">
-            Connect With Us
-          </span>
-
-            <div
-                className="social-links"
-                aria-label="Social media links"
-            >
+            <div className="social-links" aria-label="Social media links">
               {socialLinks.map(
                   ({ label, href, Icon, className }) => (
                       <a
@@ -108,9 +116,7 @@ export default function Footer() {
                   )
               )}
             </div>
-
           </div>
-
         </div>
       </footer>
   );

@@ -14,10 +14,10 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.techhbyus.com"),
-  title: "TechByus | We build website - you grow your business",
-  description: "TechByus builds modern websites, service platforms, and SEO foundations for growing businesses.",
+  title: "Techhbyus | We build website - you grow your business",
+  description: "Techhbyus builds modern websites, service platforms, and SEO foundations for growing businesses.",
   openGraph: {
-    siteName: "TechByus",
+    siteName: "Techhbyus",
     type: "website",
     locale: "en_US",
   },

@@ -3,12 +3,12 @@ import { Suspense } from "react";
 import ServiceForm from "./ServiceForm";
 
 export const metadata: Metadata = {
-  title: "Avail a Service | TechByus",
-  description: "Tell us about your business and what you need. TechByus will review your goals and provide tailored digital solutions.",
+  title: "Avail a Service | Techhbyus",
+  description: "Tell us about your business and what you need. Techhbyus will review your goals and provide tailored digital solutions.",
   alternates: { canonical: "/avail-service" },
   openGraph: {
-    title: "Avail a Service | TechByus",
-    description: "Tell us about your business and what you need. TechByus will review your goals and provide tailored digital solutions.",
+    title: "Avail a Service | Techhbyus",
+    description: "Tell us about your business and what you need. Techhbyus will review your goals and provide tailored digital solutions.",
     url: "/avail-service",
   },
 };
@@ -22,7 +22,7 @@ export default function AvailServicePage() {
           <p className="eyebrow">Get Started</p>
           <h1>Let&apos;s Build & Grow Your Business Together</h1>
           <p>
-            At TechByus, we help businesses build professional websites,
+            At Techhbyus, we help businesses build professional websites,
             improve their online presence, grow their audience,
             and expand their business through smart digital solutions.
           </p>

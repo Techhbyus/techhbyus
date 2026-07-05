@@ -1,12 +1,15 @@
 import {
-  BriefcaseBusiness,
   Globe2,
   Handshake,
-  Megaphone,
+  Headset,
   Rocket,
-  Settings,
+  Search,
+  ShieldCheck,
+  ShoppingCart,
+  Smartphone,
   Sparkles,
   TrendingUp,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 
@@ -54,61 +57,158 @@ export interface PricingTier {
   priceLabel: string;
   features: string[];
   ctaService: string;
+  badge?: string;
+  note?: string;
+  featured?: boolean;
 }
+
+export interface TemplateItem {
+  title: string;
+  text: string;
+  tag: string;
+}
+
+export interface TrustBadge {
+  title: string;
+  text: string;
+  Icon: LucideIcon;
+}
+
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+// EMPTY ON PURPOSE — no verified numbers exist yet (2-person, pre-legal
+// studio). Do not add a placeholder like "50+ projects" here. Add real
+// figures only when they're true, same rule as testimonials.ts.
+export const statItems: StatItem[] = [];
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
   { label: "Avail service", href: "/avail-service" },
-  { label: "SEO", href: "/seo" },
 ];
 
 // Canonical "what do you need" options — shared by the avail-service form
 // and the pricing tier CTAs (each tier's ctaService must match one exactly).
 export const serviceOptions: string[] = [
   "New website",
+  "E-commerce store",
   "Existing site — fixes & features",
   "Custom platform / web app",
   "SEO",
   "Maintenance",
 ];
 
-export const pricingTiers: PricingTier[] = [
+export const normalPricingTiers: PricingTier[] = [
   {
-    title: "Starter / Landing Site",
-    priceLabel: "Starting from ₹15,000",
+    title: "Starter",
+    priceLabel: "₹5,999",
     features: [
-      "Up to 3 pages (Home, About, Contact)",
-      "Contact form wired to your email",
-      "Mobile-responsive layout",
-      "Basic on-page SEO (titles, meta descriptions)",
-      "1 round of revisions",
+      "Responsive design",
+      "Up to 2 pages",
+      "Contact form",
+      "Mobile friendly",
+      "Domain support — you own it, we help set it up",
     ],
     ctaService: "New website",
   },
   {
-    title: "Business Website",
-    priceLabel: "Starting from ₹25,000",
+    title: "Pro",
+    priceLabel: "₹7,999",
+    badge: "Most Popular",
+    featured: true,
+    features: [
+      "Up to 4 pages",
+      "SEO — 3 months",
+      "Database maintenance — 3 months",
+      "WhatsApp integration",
+      "Google Maps embed",
+      "Domain support — you own it, we help set it up",
+    ],
+    ctaService: "New website",
+  },
+  {
+    title: "Premium",
+    priceLabel: "₹11,999",
     features: [
       "Up to 8 pages",
-      "Contact or enquiry form with service routing",
-      "On-page SEO across every page",
-      "2 rounds of revisions",
-      "Post-launch content updates handled by us — no CMS login needed",
+      "SEO — 12 months",
+      "Database maintenance — 9 months",
+      "Performance optimization",
+      "Analytics setup",
+      "Priority support",
+      "Domain support — you own it, we help set it up",
     ],
     ctaService: "New website",
   },
+];
+
+export const ecommercePricingTiers: PricingTier[] = [
   {
-    title: "Custom Platform / Web App",
-    priceLabel: "Custom quote",
+    title: "Base Plan",
+    priceLabel: "₹19,999",
     features: [
-      "Custom interactive features — booking flows, dashboards, calculators",
-      "Database-backed logic (MySQL) when the project needs real data, not just pages",
-      "Third-party integrations (payments, calendars, APIs) as needed",
-      "Ongoing support and maintenance available",
+      "Up to 3 pages",
+      "Product catalog",
+      "Shopping cart",
+      "Payment gateway",
+      "Mobile responsive",
+      "Domain support — you own it, we help set it up",
     ],
-    ctaService: "Custom platform / web app",
+    ctaService: "E-commerce store",
   },
+  {
+    title: "Premium Plan",
+    priceLabel: "₹29,999",
+    featured: true,
+    features: [
+      "Up to 5 pages",
+      "Payment gateway",
+      "API integrations",
+      "Database maintenance — 3 months",
+      "Admin dashboard",
+      "Order management",
+      "Inventory system",
+      "Domain support — you own it, we help set it up",
+    ],
+    note: "Third-party API subscription charges not included.",
+    ctaService: "E-commerce store",
+  },
+];
+
+export const templateGalleryItems: TemplateItem[] = [
+  {
+    title: "Creative & DIY Website",
+    text: "Built for artisans, crafters, and creative businesses to show their work and take orders.",
+    tag: "Creative",
+  },
+  {
+    title: "Restaurant Website",
+    text: "Menus, location, and ordering info laid out for restaurants, cafes, and food businesses.",
+    tag: "Food & Beverage",
+  },
+  {
+    title: "Salon & Beauty Website",
+    text: "Booking-first layouts for salons, spas, and beauty clinics.",
+    tag: "Salon & Beauty",
+  },
+  {
+    title: "Clothing Brand Website",
+    text: "Product-forward layouts for fashion brands and online stores.",
+    tag: "Retail",
+  },
+];
+
+export const trustBadges: TrustBadge[] = [
+  { title: "Own Your Domain", text: "Full control, no lock-in", Icon: Globe2 },
+  { title: "SEO Optimized", text: "Rank higher on Google", Icon: Search },
+  { title: "Mobile Friendly", text: "100% responsive", Icon: Smartphone },
+  { title: "Secure & Fast", text: "Speed optimized", Icon: ShieldCheck },
+  { title: "Ongoing Support", text: "We're always here", Icon: Headset },
 ];
 
 // Used on /services page — accordion cards with detail + bullet points
@@ -154,71 +254,107 @@ export const seoItems: SeoItem[] = [
   },
 ];
 
-// Home page data
-export const missionItems: string[] = [
-  "Custom interactive UI - booking flows, dashboards, calculators - not static templates",
-  "Next.js, React, TypeScript, Tailwind - the stack behind production apps",
-  "MySQL-backed features when your site needs real logic, not just pages",
-  "Typical build: 4-6 weeks from kickoff to launch",
-  "Two developers, every line of code - no outsourced templates",
+// Home page — hero checklist (below the hero copy, matches the 5-item
+// brief: no "free domain" claim here, domain is client-owned per pricing).
+export const heroChecklist: string[] = [
+  "Website Development",
+  "SEO Optimization",
+  "Hosting Setup & Support",
+  "Database Maintenance",
+  "Ongoing Technical Support",
 ];
 
 // Used on home page — overview grid (different from /services accordion)
 export const homeServices: IconedItem[] = [
   {
     title: "Website Development",
-    text: "Professional, modern, and responsive websites that represent your brand and help convert visitors into customers.",
+    text: "Professional, responsive websites built from a template or fully custom, depending on what your business needs.",
     Icon: Globe2,
   },
   {
-    title: "Business Growth Consulting",
-    text: "We help businesses improve their digital strategy, customer reach, and overall business growth.",
-    Icon: TrendingUp,
+    title: "E-Commerce Stores",
+    text: "Sell online with secure payments, order management, and an inventory system built in.",
+    Icon: ShoppingCart,
   },
   {
-    title: "Business Model Expansion",
-    text: "Looking to expand your services or scale your business? We help you identify opportunities and create strategies for long-term growth.",
-    Icon: BriefcaseBusiness,
+    title: "SEO Optimization",
+    text: "Get discovered on Google and turn search traffic into enquiries.",
+    Icon: Search,
   },
   {
-    title: "Branding & Online Presence",
-    text: "Build a strong online identity with professional branding, social media guidance, and digital visibility strategies.",
+    title: "Database Management",
+    text: "Secure database maintenance and backups so your site runs smoothly without you thinking about it.",
+    Icon: ShieldCheck,
+  },
+  {
+    title: "Website Maintenance",
+    text: "Regular updates, bug fixes, backups and monitoring after launch.",
+    Icon: Wrench,
+  },
+  {
+    title: "Business Automation",
+    text: "Custom integrations — forms, APIs, CRMs, booking flows — for businesses that have outgrown a template.",
     Icon: Sparkles,
-  },
-  {
-    title: "Audience Growth",
-    text: "We help you reach the right audience and grow your customer base using smart digital marketing and engagement strategies.",
-    Icon: Megaphone,
-  },
-  {
-    title: "Technical Support & Maintenance",
-    text: "Reliable support and maintenance services to ensure your digital platforms stay secure and updated.",
-    Icon: Settings,
   },
 ];
 
 export const reasons: IconedItem[] = [
-  { title: "Custom Builds, Not Templates", text: "React and Next.js applications with real logic - interactive tools, booking systems, admin panels - not a theme with your logo swapped in.", Icon: Sparkles },
-  { title: "Modern, Typed Stack", text: "TypeScript in strict mode, Tailwind CSS, and a MySQL-backed backend when a project needs one - the same stack used for production software.", Icon: Settings },
-  { title: "4-6 Week Delivery", text: "Most projects go from kickoff to launch in 4-6 weeks, including custom features.", Icon: Rocket },
-  { title: "Direct Access to the Builders", text: "You work directly with the two developers building your project - no account managers, no outsourcing.", Icon: Handshake },
-  { title: "Built to Scale", text: "Architecture that holds up as your business grows, not a static site you rebuild in a year.", Icon: TrendingUp },
+  { title: "Fast Delivery", text: "Most sites go from kickoff to launch in days, not months.", Icon: Rocket },
+  { title: "Direct Access to the Builders", text: "You work directly with the two developers building your site — no account managers.", Icon: Handshake },
+  { title: "Custom Builds When You Need Them", text: "Outgrown a template? We build booking flows, dashboards, and custom logic too.", Icon: Sparkles },
+  { title: "Built to Scale", text: "Architecture that holds up as your business grows, not a site you rebuild in a year.", Icon: TrendingUp },
+];
+
+export interface ComparisonRow {
+  feature: string;
+  starter: string;
+  pro: string;
+  premium: string;
+}
+
+// Feature comparison for the 3 normal-website tiers — shown on /pricing.
+// Values must stay in sync with normalPricingTiers above.
+export const pricingComparison: ComparisonRow[] = [
+  { feature: "Domain", starter: "You own it", pro: "You own it", premium: "You own it" },
+  { feature: "Pages included", starter: "2", pro: "4", premium: "8" },
+  { feature: "Responsive design", starter: "✓", pro: "✓", premium: "✓" },
+  { feature: "SEO", starter: "—", pro: "3 months", premium: "12 months" },
+  { feature: "Database maintenance", starter: "—", pro: "3 months", premium: "9 months" },
+  { feature: "WhatsApp integration", starter: "—", pro: "✓", premium: "✓" },
+  { feature: "Performance optimization", starter: "—", pro: "—", premium: "✓" },
+  { feature: "Priority support", starter: "—", pro: "—", premium: "✓" },
+];
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export const pricingFaqs: FaqItem[] = [
+  {
+    question: "Why isn't a domain included?",
+    answer: "You register and own your domain directly, in your own account. It costs about the same either way, but it means the domain is always yours — no lock-in, no handoff risk. We help you register and connect it either way.",
+  },
+  {
+    question: "What happens when my SEO or maintenance period ends?",
+    answer: "Nothing stops working. You can renew maintenance as a simple add-on whenever you're ready, or keep running the site as-is.",
+  },
+  {
+    question: "Can I upgrade to a higher plan later?",
+    answer: "Yes. Start with Starter and move to Pro or Premium whenever your business needs more pages, SEO, or support.",
+  },
+  {
+    question: "Do e-commerce plans include payment gateway fees?",
+    answer: "The payment gateway integration is included in the build. The gateway provider's own transaction fees are separate, same as any online store.",
+  },
 ];
 
 export const processSteps: ProcessStep[] = [
-  { title: "Understand Your Business", text: "We learn about your goals, challenges, and vision." },
-  { title: "Create the Right Strategy", text: "We build a roadmap for your website, branding, and growth plan." },
-  { title: "Build & Launch", text: "Our team develops professional digital solutions tailored to your business." },
-  { title: "Grow Together", text: "We continue supporting your business growth and audience expansion." },
-];
-
-export const featureItems: string[] = [
-  "Build a professional online presence",
-  "Reach more customers",
-  "Improve business credibility",
-  "Expand your business model",
-  "Grow your audience",
-  "Increase digital visibility",
-  "Build trust with customers",
-  "Create long-term growth opportunities",
+  { title: "Discovery", text: "We understand your business and goals." },
+  { title: "Planning", text: "We plan the structure and strategy." },
+  { title: "Design", text: "We design a modern, engaging UI/UX." },
+  { title: "Development", text: "We build with clean, scalable code." },
+  { title: "Testing", text: "We test thoroughly for a bug-free experience." },
+  { title: "Launch", text: "We deploy and make your website live." },
+  { title: "Support", text: "We provide ongoing support and maintenance." },
 ];

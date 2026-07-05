@@ -3,12 +3,12 @@ import ServiceCards from "@/components/home/ServiceCards";
 import { services } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Services | TechByus",
+  title: "Services | Techhbyus",
   description:
       "Helping small businesses grow through website development, hosting, maintenance, business consulting, and digital growth solutions.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services | TechByus",
+    title: "Services | Techhbyus",
     description:
         "Helping small businesses grow through website development, hosting, maintenance, business consulting, and digital growth solutions.",
     url: "/services",
@@ -30,7 +30,7 @@ export default function ServicesPage() {
             </h1>
 
             <p>
-              At TechByus, we help businesses build professional websites,
+              At Techhbyus, we help businesses build professional websites,
               grow their online presence, expand their business model,
               and reach more customers through smart digital solutions.
             </p>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
             </h2>
 
             <p>
-              Partner with TechByus and let us help you create a stronger
+              Partner with Techhbyus and let us help you create a stronger
               digital future through technology, consulting, and business growth solutions.
             </p>
 

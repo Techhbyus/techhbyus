@@ -3,14 +3,14 @@ import Link from "next/link";
 import { seoItems } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "SEO Services | TechByus",
+  title: "SEO Services | Techhbyus",
   description:
-      "Professional SEO services from TechByus helping businesses improve visibility, reach more customers, and grow online.",
+      "Professional SEO services from Techhbyus helping businesses improve visibility, reach more customers, and grow online.",
   alternates: { canonical: "/seo" },
   openGraph: {
-    title: "SEO Services | TechByus",
+    title: "SEO Services | Techhbyus",
     description:
-        "Professional SEO services from TechByus helping businesses improve visibility, reach more customers, and grow online.",
+        "Professional SEO services from Techhbyus helping businesses improve visibility, reach more customers, and grow online.",
     url: "/seo",
   },
 };
@@ -31,7 +31,7 @@ export default function SeoPage() {
             </h1>
 
             <p>
-              At TechByus, we help businesses improve their online visibility,
+              At Techhbyus, we help businesses improve their online visibility,
               attract the right audience, and grow their digital presence through
               modern SEO solutions and optimization strategies.
             </p>
@@ -153,7 +153,7 @@ export default function SeoPage() {
             </h2>
 
             <p>
-              Partner with TechByus and let us help your business
+              Partner with Techhbyus and let us help your business
               reach more customers through professional SEO services
               and digital growth strategies.
             </p>

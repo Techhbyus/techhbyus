@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItems } from "@/data/site";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -32,11 +31,11 @@ export default function Header() {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <nav className="navbar" aria-label="Primary navigation">
-        <Link className="brand" href="/" aria-label="TechByus home" onClick={() => setIsMenuOpen(false)}>
+        <Link className="brand" href="/" aria-label="Techhbyus home" onClick={() => setIsMenuOpen(false)}>
           <motion.span className="brand-logo-wrap" whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.96 }}>
-            <Image className="brand-logo" src="/assets/techbyus-logo.png" alt="TechByus logo" width={260} height={260} priority />
+            <Image className="brand-logo" src="/assets/techhbyus-logo.png" alt="Techhbyus logo" width={260} height={260} priority />
           </motion.span>
-          <span>TechByus</span>
+          <span>Techhbyus</span>
         </Link>
 
         <AnimatePresence initial={false}>
@@ -79,7 +78,6 @@ export default function Header() {
         </AnimatePresence>
 
         <div className="nav-actions">
-          <ThemeToggle />
           <button className="menu-toggle" type="button" aria-label="Open menu" aria-expanded={isMenuOpen} aria-controls="primary-menu" onClick={() => setIsMenuOpen((current) => !current)}>
             <span />
             <span />

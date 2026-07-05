@@ -3,25 +3,29 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  ChevronRight,
-  CircleCheck,
-  SearchCheck,
+  CheckCircle2,
+  Rocket,
 } from "lucide-react";
 import {
   contactInfo,
-  featureItems,
+  heroChecklist,
   homeServices,
-  missionItems,
-  pricingTiers,
   processSteps,
   reasons,
 } from "@/data/site";
+import StatsBand from "@/components/home/StatsBand";
+import TemplateGallery from "@/components/home/TemplateGallery";
+import PricingTables from "@/components/home/PricingTables";
+import TrustBadges from "@/components/home/TrustBadges";
+import AboutSection from "@/components/home/AboutSection";
+import RecentWork from "@/components/home/RecentWork";
+import TestimonialStrip from "@/components/home/TestimonialStrip";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
-    title: "TechByus | We build website - you grow your business",
-    description: "TechByus builds modern websites, service platforms, and SEO foundations for growing businesses.",
+    title: "Techhbyus | You focus on your business. We build your digital presence.",
+    description: "Techhbyus builds, optimizes, and maintains websites for growing businesses — from ready-to-launch packages to fully custom platforms.",
     url: "/",
   },
 };
@@ -30,124 +34,66 @@ export default function Home() {
   return (
     <main>
       <section className="home-hero section">
-<div className="home-hero-content reveal-left">
-          <p className="eyebrow">Custom web &amp; software studio</p>
-          <h1>We build custom booking platforms and business tools - not templates</h1>
+        <div className="home-hero-content reveal-left">
+          <p className="eyebrow">Your Digital Partner For Growth</p>
+          <h1>
+            You focus on your business. We build, optimize and maintain your{" "}
+            <span className="accent">digital presence</span>.
+          </h1>
           <p className="home-hero-lead">
-            We&apos;ve built an interactive React-based body-mapping tool for a physiotherapy clinic and a job-matching platform for an overseas recruitment consultancy - real systems with custom logic, not templated marketing sites.
+            Professional websites that attract customers, rank on Google, and stay maintained — without the hassle.
           </p>
-          <p className="home-hero-copy">
-            You get custom interactive features - booking flows, dashboards, calculators - not a template theme with your logo swapped in. Two developers build and maintain every project end-to-end.
-          </p>
+          <ul className="hero-checklist reveal">
+            {heroChecklist.map((item) => (
+              <li key={item}>
+                <CheckCircle2 size={18} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
           <div className="hero-actions">
             <Link className="btn primary" href="/avail-service">
-              Start Your Project
+              Get Free Consultation
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link className="btn secondary" href="/avail-service">
-              Book Free Consultation
+            <Link className="btn secondary" href="/pricing">
+              View Pricing
             </Link>
           </div>
           <p className="hero-contact-note">
             Prefer email? <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
           </p>
         </div>
-        <div className="growth-panel reveal-right" aria-label="TechByus growth focus">
-          <Image src="/assets/hero-workspace.png" alt="TechByus digital growth workspace" width={1600} height={1000} priority />
-          <div className="growth-metrics">
-            <span><strong>Websites</strong>Launch-ready digital presence</span>
-            <span><strong>Strategy</strong>Clear growth roadmap</span>
-            <span><strong>Support</strong>Long-term partnership</span>
+        <div className="growth-panel reveal-right" aria-label="Techhbyus website preview">
+          <div className="laptop-mockup">
+            <div className="laptop-screen">
+              <Image src="/assets/hero-workspace.png" alt="Techhbyus website preview" width={1600} height={1000} priority />
+            </div>
+            <div className="laptop-base" />
           </div>
         </div>
       </section>
 
-      {/* Testimonial strip drafted in src/components/home/TestimonialStrip.tsx — not wired in yet, no real client quotes collected. Renders null if empty, but stays out of page.tsx entirely until quotes exist. See REVAMP.md. To ship: import TestimonialStrip and render <TestimonialStrip /> here. */}
+      <StatsBand />
 
-      <section className="trust-band">
-        <div className="trust-inner">
-          <div className="reveal-left">
-            <p className="eyebrow">What You Actually Get</p>
-            <h2>Real stack, real features, real timelines.</h2>
-            <p>No case studies to show yet - here is exactly what we build and how long it takes.</p>
-          </div>
-          <ul className="mission-list reveal-right" aria-label="TechByus mission">
-            {missionItems.map((item) => (
-              <li key={item}>
-                <CircleCheck size={20} aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section about-section">
-        <div className="section-heading reveal">
-          <p className="eyebrow">Your Growth Partner in the Digital World</p>
-          <h2>Consulting, technology, and practical growth support in one place.</h2>
-        </div>
-        <div className="about-layout">
-          <p className="reveal">
-            TechByus is a consulting and technology company focused on helping businesses establish a strong digital presence and unlock new growth opportunities.
-          </p>
-          <p className="reveal">
-            Whether you are a startup, local business, personal brand, or growing company, we provide the right solutions to help you succeed online.
-          </p>
-          <p className="reveal">
-            We understand that every business is different. That is why we create customized strategies and digital solutions designed specifically for your goals.
-          </p>
-        </div>
-      </section>
-
-      <section className="section home-services">
-        <div className="section-heading reveal">
-          <p className="eyebrow">Our Services</p>
-          <h2>Digital services built around business outcomes.</h2>
-        </div>
-        <div className="home-service-grid">
-          {homeServices.map(({ title, text, Icon }) => (
-            <article className="home-service-card reveal" key={title}>
-              <span className="home-card-icon"><Icon size={24} aria-hidden="true" /></span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-              <ChevronRight className="card-arrow" size={20} aria-hidden="true" />
-            </article>
-          ))}
-        </div>
-      </section>
+      <TemplateGallery />
 
       <section className="section pricing-section">
         <div className="section-heading reveal">
-          <p className="eyebrow">Services &amp; Packages</p>
-          <h2>Straightforward tiers, not a mystery quote.</h2>
+          <p className="eyebrow">Simple Plans. Powerful Results.</p>
+          <h2>Straightforward packages, not a mystery quote.</h2>
         </div>
-        <div className="pricing-grid">
-          {pricingTiers.map((tier) => (
-            <article className="pricing-card reveal" key={tier.title}>
-              <h3>{tier.title}</h3>
-              <p className="pricing-price">{tier.priceLabel}</p>
-              <ul className="check-list">
-                {tier.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-              <Link
-                className="btn secondary pricing-cta"
-                href={`/avail-service?service=${encodeURIComponent(tier.ctaService)}&package=${encodeURIComponent(tier.title)}`}
-              >
-                Get a quote for this
-              </Link>
-            </article>
-          ))}
-        </div>
+        <PricingTables />
+        <p className="section-more-link reveal">
+          <Link href="/pricing">See full pricing details &amp; plan comparison →</Link>
+        </p>
       </section>
 
-      {/* About/Team section drafted in src/components/home/AboutSection.tsx — not wired in yet, pending real team photos. See REVAMP.md. To ship: import AboutSection and render <AboutSection /> here. */}
+      <TrustBadges />
 
       <section className="section why-section">
         <div className="section-heading reveal">
-          <p className="eyebrow">Why Choose TechByus?</p>
+          <p className="eyebrow">Why Choose Techhbyus?</p>
           <h2>Built for businesses that want steady digital growth.</h2>
         </div>
         <div className="reason-grid">
@@ -163,48 +109,56 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="process-band reveal">
-        <div className="section process-section">
-          <div className="section-heading reveal">
-            <p className="eyebrow">How We Work</p>
-            <h2>A clear process from idea to growth.</h2>
-          </div>
-          <div className="process-grid">
-            {processSteps.map(({ title, text }, index) => (
-              <article className="process-step reveal" key={title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
-      <section className="section feature-section">
-        <div className="feature-copy reveal-left">
-          <p className="eyebrow">More Than a Website</p>
-          <h2>We Help You Build More Than a Website</h2>
-          <p>At TechByus, we help you connect your brand, customers, credibility, and long-term digital opportunities.</p>
+      <section className="section home-services">
+        <div className="section-heading reveal">
+          <p className="eyebrow">What We Do</p>
+          <h2>Everything your business needs online.</h2>
         </div>
-        <div className="feature-list reveal-right">
-          {featureItems.map((item) => (
-            <span key={item}>
-              <SearchCheck size={18} aria-hidden="true" />
-              {item}
-            </span>
+        <div className="home-service-grid">
+          {homeServices.map(({ title, text, Icon }) => (
+            <article className="home-service-card reveal" key={title}>
+              <span className="home-card-icon"><Icon size={24} aria-hidden="true" /></span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
           ))}
         </div>
       </section>
 
+      <section className="section process-section">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Our Process</p>
+          <h2>A clear process from idea to launch.</h2>
+        </div>
+        <div className="process-grid">
+          {processSteps.map(({ title, text }, index) => (
+            <article className="process-step reveal" key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <RecentWork />
+
+      <TestimonialStrip />
+
       <section className="final-cta reveal">
         <div className="final-cta-inner">
-          <p className="eyebrow">Ready to Grow Your Business?</p>
-          <h2>Let TechByus become your digital bridge to success.</h2>
-          <p>From building websites to expanding your business model, we help you move forward with confidence.</p>
+          <div className="final-cta-copy">
+            <p className="eyebrow">Ready to Grow Your Business?</p>
+            <h2>Let&apos;s build a website that converts visitors into customers.</h2>
+          </div>
           <div className="hero-actions">
-            <Link className="btn primary" href="/avail-service">Contact Us Today</Link>
-            <Link className="btn secondary" href="/avail-service">Start Growing With Us</Link>
+            <Link className="btn primary" href="/avail-service">Book Free Consultation</Link>
+            <Link className="btn secondary" href="/avail-service">
+              Get a Quote
+              <Rocket size={18} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>

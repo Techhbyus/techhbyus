@@ -153,18 +153,6 @@ export default function GSAPAnimations() {
       });
 
       // ────────────────────────────────────────────────────────────────────
-      // MISSION LIST — pills slide from left with stagger
-      // ────────────────────────────────────────────────────────────────────
-      const missionItems = gsap.utils.toArray<Element>(".mission-list li");
-      if (missionItems.length) {
-        gsap.set(missionItems, { x: -24, opacity: 0 });
-        gsap.to(missionItems, {
-          x: 0, opacity: 1, duration: 0.52, ease: "power2.out", stagger: 0.075,
-          scrollTrigger: { trigger: ".mission-list", start: "top 86%" },
-        });
-      }
-
-      // ────────────────────────────────────────────────────────────────────
       // GRID SECTIONS — scale-up + fade (safe inside overflow:hidden parents)
       // y-translate would get clipped at parent edge, so we use scale instead
       // ────────────────────────────────────────────────────────────────────
@@ -172,7 +160,8 @@ export default function GSAPAnimations() {
         { items: ".home-service-card", trigger: ".home-service-grid" },
         { items: ".reason-card",       trigger: ".reason-grid"       },
         { items: ".process-step",      trigger: ".process-grid"      },
-        { items: ".about-layout p",    trigger: ".about-layout"      },
+        { items: ".template-card",     trigger: ".template-grid"     },
+        { items: ".recent-work-card",  trigger: ".recent-work-grid"  },
       ].forEach(({ items, trigger }) => {
         const els    = gsap.utils.toArray<Element>(items);
         const parent = document.querySelector(trigger);
@@ -184,26 +173,6 @@ export default function GSAPAnimations() {
           scrollTrigger: { trigger: parent, start: "top 86%" },
         });
       });
-
-      // ────────────────────────────────────────────────────────────────────
-      // FEATURE LIST — scrub reveal tied to scroll progress
-      // The copy column is already position:sticky so this creates the effect
-      // of items appearing one-by-one as you scroll past the section.
-      // ────────────────────────────────────────────────────────────────────
-      const featureSection = document.querySelector(".feature-section");
-      const featureItems   = gsap.utils.toArray<Element>(".feature-list span");
-      if (featureSection && featureItems.length) {
-        gsap.set(featureItems, { scale: 0.94, opacity: 0 });
-        gsap.to(featureItems, {
-          scale: 1, opacity: 1, stagger: 0.11, ease: "none",
-          scrollTrigger: {
-            trigger: featureSection,
-            start: "top 60%",
-            end: "bottom 48%",
-            scrub: 1,
-          },
-        });
-      }
 
       // ────────────────────────────────────────────────────────────────────
       // CATCH-ALL REVEAL LOOPS
