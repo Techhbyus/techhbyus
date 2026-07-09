@@ -24,7 +24,7 @@ import TestimonialStrip from "@/components/home/TestimonialStrip";
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Techhbyus | You focus on your business. We build your digital presence.",
+    title: "Techhbyus | We build, optimize, and maintain your digital presence.",
     description: "Techhbyus builds, optimizes, and maintains websites for growing businesses — from ready-to-launch packages to fully custom platforms.",
     url: "/",
   },
@@ -37,7 +37,7 @@ export default function Home() {
         <div className="home-hero-content reveal-left">
           <p className="eyebrow">Your Digital Partner For Growth</p>
           <h1>
-            You focus on your business. We build, optimize and maintain your{" "}
+            We build, optimize, and maintain your{" "}
             <span className="accent">digital presence</span>.
           </h1>
           <p className="home-hero-lead">
