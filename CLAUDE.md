@@ -21,7 +21,7 @@
 - `framer-motion` + `gsap` — animation engines for navbar/hero/background motion
 - `lucide-react` for UI icons
 - `react-icons` for social icons (Instagram, Facebook, LinkedIn)
-- `mysql2` for database (contact form / service requests)
+- `pg` for database (contact form / service requests) — Postgres on Neon
 - ESLint via `eslint-config-next` (⚠ currently broken — see Commands)
 
 **Key pages:**
@@ -65,7 +65,7 @@ src/
 │   │                   per query, parameterized placeholders always.
 │   ├── helpers/         cross-cutting pure functions (errors, response
 │   │                   envelopes) shared across controllers/services.
-│   └── db/pool.ts      mysql2 connection pool.
+│   └── db/pool.ts      pg connection pool (Neon Postgres).
 ├── components/     Reusable UI, organized by feature: layout/, home/,
 │                   animation/, ui/. Page-specific one-off components (e.g.
 │                   ServiceForm.tsx) stay colocated with their page instead.
@@ -160,14 +160,14 @@ Skip only for single-line factual questions with no code.
 - Tailwind utility classes preferred for new components; keep tokens/fonts/global resets in `globals.css`
 - No inline `style={{}}` for layout — tailwind classes or globals.css only
 - No unused imports, no console.log in committed code
-- `mysql2` queries must use parameterized placeholders — never interpolate user input into SQL, and only inside a `repositories/` file
+- `pg` queries must use parameterized placeholders (`$1, $2...`) — never interpolate user input into SQL, and only inside a `repositories/` file
 
 ---
 
 ## Security (OWASP Top 10)
 
 - Never store secrets client-side (no API keys in JSX/JS that ships to browser)
-- All DB queries use parameterized placeholders via `mysql2` — zero string interpolation
+- All DB queries use parameterized placeholders via `pg` — zero string interpolation
 - Validate and sanitize all form input in the service layer before it reaches a repository
 - `.env.local` for all secrets — never commit `.env` files
 - No `eval`, no `dangerouslySetInnerHTML` with user content

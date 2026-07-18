@@ -6,7 +6,7 @@ export async function insertServiceRequest(payload: ServiceRequestPayload): Prom
     `
     INSERT INTO service_requests
     (name, email, business, service, details)
-    VALUES (?, ?, ?, ?, ?)
+    VALUES ($1, $2, $3, $4, $5)
     `,
     [
       payload.name,
