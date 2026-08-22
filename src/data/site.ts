@@ -1,14 +1,21 @@
 import {
+  Building2,
+  Clock,
+  Database,
   Globe2,
   Handshake,
   Headset,
+  LineChart,
+  MousePointerClick,
   Rocket,
   Search,
   ShieldCheck,
   ShoppingCart,
   Smartphone,
   Sparkles,
+  Store,
   TrendingUp,
+  Users2,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -272,6 +279,11 @@ export const homeServices: IconedItem[] = [
     Icon: Globe2,
   },
   {
+    title: "Business Automation",
+    text: "Custom integrations — forms, APIs, CRMs, booking flows — for businesses that have outgrown a template.",
+    Icon: Sparkles,
+  },
+  {
     title: "E-Commerce Stores",
     text: "Sell online with secure payments, order management, and an inventory system built in.",
     Icon: ShoppingCart,
@@ -291,10 +303,74 @@ export const homeServices: IconedItem[] = [
     text: "Regular updates, bug fixes, backups and monitoring after launch.",
     Icon: Wrench,
   },
+];
+
+// Homepage — "What's slowing your business down?" problem cards, shown
+// before the services grid so visitors self-identify before we pitch.
+export const homeProblems: IconedItem[] = [
   {
-    title: "Business Automation",
-    text: "Custom integrations — forms, APIs, CRMs, booking flows — for businesses that have outgrown a template.",
-    Icon: Sparkles,
+    title: "Too much manual work",
+    text: "Your team spends hours entering data, chasing payment confirmations, or updating spreadsheets that should update themselves.",
+    Icon: Clock,
+  },
+  {
+    title: "Your data is scattered",
+    text: "Information lives across spreadsheets, WhatsApp, and email instead of one place your team can trust.",
+    Icon: Database,
+  },
+  {
+    title: "Your website isn't converting",
+    text: "Visitors land on your site but leave without understanding what you do or what to do next.",
+    Icon: MousePointerClick,
+  },
+  {
+    title: "You've outgrown your tools",
+    text: "What worked when you were small is now the thing slowing you down.",
+    Icon: LineChart,
+  },
+];
+
+// Homepage — "Who We Build For" audience cards.
+export const whoWeBuildFor: IconedItem[] = [
+  {
+    title: "Local businesses",
+    text: "Websites, bookings, and enquiry handling that give customers a reason to choose you.",
+    Icon: Store,
+  },
+  {
+    title: "E-commerce brands",
+    text: "Stores built around products, payments, and inventory that actually stays in sync.",
+    Icon: ShoppingCart,
+  },
+  {
+    title: "Service businesses",
+    text: "Websites and dashboards that replace the spreadsheet running your operations.",
+    Icon: Building2,
+  },
+  {
+    title: "Growing teams",
+    text: "Internal tools and automation for the manual work nobody has time for anymore.",
+    Icon: Users2,
+  },
+];
+
+// Homepage — general FAQ (distinct from pricingFaqs, which stays pricing-specific).
+export const homeFaqs: FaqItem[] = [
+  {
+    question: "Do you only build websites?",
+    answer: "No. Websites are most of our work today, but we also build e-commerce stores, dashboards, and custom automation for businesses that have outgrown off-the-shelf tools.",
+  },
+  {
+    question: "Can you build something custom for my business?",
+    answer: "Yes. Tell us what's slowing you down and we'll tell you honestly whether a custom build makes sense, or whether a simpler fix solves it.",
+  },
+  {
+    question: "Do I need to know anything technical?",
+    answer: "No. We handle the technical side and explain decisions in plain language as we go.",
+  },
+  {
+    question: "Who will I actually work with?",
+    answer: "The two engineers building your project. No account managers, no handoffs.",
   },
 ];
 

@@ -9,9 +9,12 @@ import {
 import {
   contactInfo,
   heroChecklist,
+  homeFaqs,
+  homeProblems,
   homeServices,
   processSteps,
   reasons,
+  whoWeBuildFor,
 } from "@/data/site";
 import StatsBand from "@/components/home/StatsBand";
 import TemplateGallery from "@/components/home/TemplateGallery";
@@ -35,13 +38,13 @@ export default function Home() {
     <main>
       <section className="home-hero section">
         <div className="home-hero-content reveal-left">
-          <p className="eyebrow">Your Digital Partner For Growth</p>
+          <p className="eyebrow">Websites, Stores, And Custom Systems</p>
           <h1>
-            We build, optimize, and maintain your{" "}
-            <span className="accent">digital presence</span>.
+            We build websites that convert —{" "}
+            <span className="accent">and the systems behind them</span>.
           </h1>
           <p className="home-hero-lead">
-            Professional websites that attract customers, rank on Google, and stay maintained — without the hassle.
+            From a professional website to the dashboard, booking flow, or automation running behind it — we build what your business needs, not a one-size-fits-all template.
           </p>
           <ul className="hero-checklist reveal">
             {heroChecklist.map((item) => (
@@ -75,6 +78,24 @@ export default function Home() {
       </section>
 
       <StatsBand />
+
+      <section className="section why-section">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Sound Familiar?</p>
+          <h2>What&apos;s slowing your business down?</h2>
+        </div>
+        <div className="reason-grid">
+          {homeProblems.map(({ title, text, Icon }) => (
+            <article className="reason-card reveal" key={title}>
+              <Icon size={24} aria-hidden="true" />
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <TemplateGallery />
 
@@ -127,6 +148,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section why-section">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Who We Build For</p>
+          <h2>If you recognize your business here, we can help.</h2>
+        </div>
+        <div className="reason-grid">
+          {whoWeBuildFor.map(({ title, text, Icon }) => (
+            <article className="reason-card reveal" key={title}>
+              <Icon size={24} aria-hidden="true" />
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section process-section">
         <div className="section-heading reveal">
           <p className="eyebrow">Our Process</p>
@@ -146,6 +185,21 @@ export default function Home() {
       <RecentWork />
 
       <TestimonialStrip />
+
+      <section className="section">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Questions</p>
+          <h2>Common questions.</h2>
+        </div>
+        <div className="services-list reveal">
+          {homeFaqs.map((faq) => (
+            <div className="service-item" key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="final-cta reveal">
         <div className="final-cta-inner">
